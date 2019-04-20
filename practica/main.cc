@@ -26,12 +26,14 @@ int main (){
                 //Mostrar la tabla de frecuencia del idioma s
                 cout << "Tabla de frecuencias de " << s << ":" << endl;
                 c.consultar_idioma(s).escribir_tabla_frecuencias(); //(l)?
+                cout << endl;
             } else if (op == "treecode"){
-                cout << "Teecode de " << s << ":" << endl;
+                cout << "Treecode de " << s << ":" << endl;
                 cout << "recorrido en preorden:" << endl;
                 c.consultar_idioma(s).escribir_TreeCode_preorden();
                 cout << "recorrido en inorden:" << endl;
                 c.consultar_idioma(s).escribir_TreeCode_inorden();
+                cout << endl;
             } else if (op == "codigos"){
                 //Escribir códigos
             }
@@ -39,12 +41,15 @@ int main (){
             if (op == "tabla_frec"){
                 cout << "Tabla de frecuencias de " << s << ':' << endl;
                 cout << "El idioma no existe" << endl;
+                cout << endl;
             } else if (op == "treecode"){
                 cout << "Treecode de " << s << ':' << endl;
                 cout << "El idioma no existe" << endl;
+                cout << endl;
             } else if (op == "codigos"){
                 cout << "Codigos de " << s << ':' << endl;
                 cout << "El idioma no existe" << endl;
+                cout << endl;
             }
         }
     }

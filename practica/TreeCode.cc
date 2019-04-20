@@ -27,17 +27,15 @@ void TreeCode::crear_nodos_base(Tabla_de_frecuencias tbl){
 }
 
 void TreeCode::crear_TreeCode(){
-	if(v.size() != 1){
+	if(v.size() == 1){
+        t = v[0];
+	} else {
         ordenar_vector_treecode();
-		BinTree<pair<string,int> > l (v[0]);
-		BinTree<pair<string,int> > r (v[1]);
-		pair<string, int> p = suma(l.value(),r.value());
-		BinTree<pair<string,int > > a (p, l, r);
+		pair<string, int> p = suma(v[0].value(),v[1].value());
+		BinTree<pair<string,int > > a (p, v[0], v[1]);
 		v.erase(v.begin(),v.begin()+2);
 		v.push_back(a);
 		crear_TreeCode();
-	} else {
-		t = v[0];
     }
 }
 
