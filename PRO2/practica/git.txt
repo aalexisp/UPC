@@ -1,0 +1,19 @@
+para añadir archivos a git:
+
+git add archivo
+git commit -m "comentario"
+git push
+
+
+
+
+para modificar archivos en git se hace igual.
+si, se hace igual
+asdad
+para eliminar archivos de git:
+
+git rm --cached archivo
+
+
+recuperar archivo eliminado
+git checkout un_fichero_eliminado
