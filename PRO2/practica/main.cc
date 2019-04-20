@@ -29,10 +29,7 @@ int main (){
                 cout << endl;
             } else if (op == "treecode"){
                 cout << "Treecode de " << s << ":" << endl;
-                cout << "recorrido en preorden:" << endl;
-                c.consultar_idioma(s).escribir_TreeCode_preorden();
-                cout << "recorrido en inorden:" << endl;
-                c.consultar_idioma(s).escribir_TreeCode_inorden();
+                c.consultar_idioma(s).escribir_treecode();
                 cout << endl;
             } else if (op == "codigos"){
                 //Escribir códigos

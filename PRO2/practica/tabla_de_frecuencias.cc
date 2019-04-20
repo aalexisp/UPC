@@ -16,9 +16,38 @@ Tabla_de_frecuencias::Tabla_de_frecuencias(const Tabla_de_frecuencias& t){
 
 //Consultoras--------------------------------------------
 
-map<string, int> Tabla_de_frecuencias::consultar_tabla_frecuencias() const{
-    return m; //get freq table
+int Tabla_de_frecuencias::tamano(){
+    return m.size();
 }
+
+pair<string, int> Tabla_de_frecuencias::consultar_iesimo(int i){
+    it = m.begin();
+    while (i != 0 and it != m.end()){
+        ++it;
+        --i;
+    }
+    return (*it);
+}
+
+/*
+string Tabla_de_frecuencias::consultar_iesimo_string(int i){
+    it = m.begin();
+    while (i != 0){
+        ++it;
+        --i;
+    }
+    return it->first;
+}
+
+int Tabla_de_frecuencias::consultar_iesimo_int(int i){
+    it = m.begin();
+    while (i != 0){
+        ++it;
+        --i;
+    }
+    return it->second;
+}
+*/
 
 //Lectura y escritura--------------------------------------------
 
@@ -39,7 +68,4 @@ void Tabla_de_frecuencias::escribir_tabla_frecuencias() const{
 }
 
 //Métodos privados--------------------------------------------
-
-bool ordena_tabla_frecuencias(string a, string b){
-    return a < b;
-}
+//Por definir

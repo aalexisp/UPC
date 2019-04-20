@@ -34,10 +34,6 @@ void Idioma::modificar_tabla_frecuencias(const Tabla_de_frecuencias& tb){
 
 //Consultoras--------------------------------------------
 
-Tabla_de_frecuencias Idioma::consultar_tabla_frecuencias() const{
-    return t;
-}
-
 string Idioma::consultar_nombre() const{
     return nombre;
 }
@@ -52,10 +48,6 @@ void Idioma::escribir_tabla_frecuencias() const{
     t.escribir_tabla_frecuencias();
 }
 
-void Idioma::escribir_TreeCode_preorden(){
-    tree.escribir_preorden(tree.consultar_treecode());
-}
-
-void Idioma::escribir_TreeCode_inorden(){
-    tree.escribir_inorden(tree.consultar_treecode());
+void Idioma::escribir_treecode(){
+    tree.escribir_treecode();
 }

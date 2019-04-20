@@ -44,7 +44,7 @@ public:
 
     /** @brief Llena el vector de árboles (nodos base)
         \pre El vector de bintrees ha sido declarado y está vacío
-        \post El parámetro implícito pasa a contener los valores correspondientes
+        \post El parámetro implícito pasa a contener los valores de la tabla de frecuencias
     */
 
     void crear_nodos_base(Tabla_de_frecuencias tbl);
@@ -58,28 +58,16 @@ public:
 
     //Consultoras--------------------------------------------
 
-    /** @brief Consulta el valor del árbol del TreeCode
-        \pre El bintree del p.i no está vacío y existe
-        \post Retorna el árbol del p.i
-    */
-
-    BinTree<pair<string,int> > consultar_treecode() const;
+    //Por determinar
 
     //Lectura y escritura--------------------------------------------
 
-    /** @brief Operación de escritura del TreeCode de un idioma en preorden
-        \pre El TreeCode no está vacío y existe
-        \post Se ha escrito por el canar estándar de salida el TreeCode en preorden
+    /** @brief Operación de escritura
+
+        \pre <em>cierto</em>
+        \post Se escribe el treecode en preorden e inorden por el canal estándar de salida
     */
-
-    void escribir_preorden(const BinTree<pair<string, int> >& b);
-
-    /** @brief Operación de escritura del TreeCode de un idioma en inorden
-        \pre El TreeCode no está vacío y existe
-        \post Se ha escrito por el canar estándar de salida el TreeCode en inorden
-    */
-
-    void escribir_inorden(const BinTree<pair<string, int> >& b);
+    void escribir_treecode();
 
 private:
     //Atributos--------------------------------------------
@@ -90,6 +78,10 @@ private:
 
     //Métodos privados--------------------------------------------
 
+    //Función para escribir el treecode en preorden
+    void escribir_preorden(const BinTree<pair<string, int> >& b);
+    //Función para escribir el treecode en inorden
+    void escribir_inorden(const BinTree<pair<string, int> >& b);
     //Función para ordenar el vector de árboles para formar el árbol
     void ordenar_vector_treecode();
     //Función para crear el par que van el el nodo de la raiz de a y b

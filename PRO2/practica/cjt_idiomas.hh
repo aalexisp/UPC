@@ -38,7 +38,7 @@ public:
     //Modificadoras--------------------------------------------
 
     /** @brief Añade el idioma l al conjunto
-        \pre El idioma es válido y no está repetido (si lo está cambio tabla?)
+        \pre El idioma es válido y no está repetido (si lo está cambio la tabla de frecuencias y treecode)
         \post El idioma l ha sido añadido al conjunto
      */
 
@@ -91,7 +91,7 @@ public:
     //Escritura y lectura--------------------------------------------
 
     /** @brief Operación de escritura de la tabla de frecuencia de un idioma
-        \pre El idioma existe y su tabla no es vacía (si lo fuese se notificaría?)
+        \pre El idioma existe y su tabla no es vacía (si lo fuese se notificaría)
         \post Se ha escrito por el canal estándar de salida la tabla de frecuencia (se llama a escribir del Idioma y luego a Frecuencias)
      */
 

@@ -17,10 +17,8 @@ TreeCode::TreeCode(const TreeCode& tree){
 void TreeCode::crear_nodos_base(Tabla_de_frecuencias tbl){
     BinTree<pair<string, int> > b;
     pair<string, int> p;
-    map<string, int> m = tbl.consultar_tabla_frecuencias();
-    for(map<string, int>::const_iterator it = m.begin(); it != m.end(); ++it){
-        p.first = it->first;
-        p.second = it->second;
+    for(int i = 0; i < tbl.tamano(); ++i){
+        p = tbl.consultar_iesimo(i);
         b = BinTree<pair<string, int> > (p);
         v.push_back(b);
     }
@@ -41,11 +39,19 @@ void TreeCode::crear_TreeCode(){
 
 //Consultoras--------------------------------------------
 
-BinTree<pair<string, int> > TreeCode::consultar_treecode() const{
-    return t;
-}
+//Por determinar
 
 //Lectura y escritura--------------------------------------------
+
+void TreeCode::escribir_treecode(){
+    cout << "recorrido en preorden:" << endl;
+    escribir_preorden(t);
+    cout << "recorrido en inorden:" << endl;
+    escribir_inorden(t);
+}
+
+
+//Métodos privados--------------------------------------------
 
 void TreeCode::escribir_preorden(const BinTree<pair<string, int> >& b){
     if (not b.empty()){
@@ -62,9 +68,6 @@ void TreeCode::escribir_inorden(const BinTree<pair<string, int> >& b){
         escribir_inorden(b.right());
     }
 }
-
-
-//Métodos privados--------------------------------------------
 
 bool comp(BinTree<pair<string,int> > a, BinTree<pair<string,int> > b){
 	if (a.value().second < b.value().second) return true;

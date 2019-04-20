@@ -42,27 +42,20 @@ public:
 
     /** @brief Crea el idioma a partir de su tabla de frecuencias
         \pre Idioma está inicializado
-        \post Se ha creado un idioma con su tabla de frecuencias correspondiente
+        \post Se ha creado un idioma con su tabla de frecuencias y treecode correspondientes
     */
 
     void crear_idioma();
 
-      /** @brief Se llenan la tabla de frecuencias y el treecode
+      /** @brief Se modifica la tabla de frecuencias
 
-        \pre La tabla de frecuencias y el treecode están vacíos
-        \post La tabla de frecuencias y el treecode se han llenado
+        \pre La tabla de frecuencias y el treecode no están vacíos
+        \post La tabla de frecuencias se ha sustituido por la nueva tb
     */
 
     void modificar_tabla_frecuencias(const Tabla_de_frecuencias& tb); //Nuevos valores de las frecuencias
 
     //Consultoras--------------------------------------------
-
-    /** @brief Consulta la frecuencia a partir de un carácter
-        \pre Existe el carácter
-        \post Retorna la frecuencia de un carácter s
-     */
-
-    Tabla_de_frecuencias consultar_tabla_frecuencias() const;
 
     /** @brief Consulta el nombre del idioma
         \pre El idioma existe y tiene nombre
@@ -81,26 +74,18 @@ public:
     void leer_nombre();
 
     /** @brief Operación de escritura de la tabla de frecuencias
-
         \pre <em>cierto</em>
-        \post Escribe la tabla de frecuencias del idioma por el canal estándar de salida (llama a "Frecuencias")
+        \post Escribe la tabla de frecuencias del idioma por el canal estándar de salida
      */
 
     void escribir_tabla_frecuencias() const;
 
-    /** @brief Operación de escritura del "TREECODE" en preorden
+    /** @brief Operación de escritura del TreeCode
         \pre <em>cierto</em>
-        \post Escribe el "TREECODE" en preorden por el canal estándar de salida
-     */
+        \post Escribe el treecode por el canal estándar de salida
+    */
 
-    void escribir_TreeCode_preorden();
-
-    /** @brief Operación de escritura del "TREECODE" en inorden
-        \pre <em>cierto</em>
-        \post Escribe el "TREECODE" en inorden por el canal estándar de salida
-     */
-
-    void escribir_TreeCode_inorden();
+    void escribir_treecode();
 
 private:
         //Atributos
