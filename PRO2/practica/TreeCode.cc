@@ -15,6 +15,7 @@ TreeCode::TreeCode(const TreeCode& tree){
 //Modificadoras--------------------------------------------
 
 void TreeCode::crear_nodos_base(Tabla_de_frecuencias tbl){
+    if (v.size() > 0) vaciar_nodos_base();
     BinTree<pair<string, int> > b;
     pair<string, int> p;
     for(int i = 0; i < tbl.tamano(); ++i){
@@ -49,7 +50,6 @@ void TreeCode::escribir_treecode(){
     cout << "recorrido en inorden:" << endl;
     escribir_inorden(t);
 }
-
 
 //Métodos privados--------------------------------------------
 
@@ -87,4 +87,10 @@ pair<string,int> TreeCode::suma(pair<string,int> a, pair<string, int> b){
 	if (a.first < b.first) p.first = a.first + b.first;
 	else p.first = b.first + a.first;
 	return p;
+}
+
+void TreeCode::vaciar_nodos_base(){
+    for (int i = 0; i < v.size(); ++i){
+        v.pop_back();
+    }
 }

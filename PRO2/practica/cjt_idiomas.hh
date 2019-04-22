@@ -1,4 +1,4 @@
-//Build 2.0
+//Build 3.0
 /** @file cjt_idiomas.hh
     @brief Especificación de la clase cjt_idiomas
 */
@@ -42,14 +42,7 @@ public:
         \post El idioma l ha sido añadido al conjunto
      */
 
-    void anadir_idioma(const Idioma& l);
-
-    /** @brief Se modifica el idioma del conjunto por el nuevo, l
-        \pre El idioma que hay en el conjunto existe
-        \post El idioma del conjunto ha sido modificado por el nuevo l
-     */
-
-    void modificar_idioma(const Idioma& l);
+    void anadir_modificar();
 
     /** @brief Se elimina un idioma del conjunto a partir de su nombre
         \pre El idioma existiía en el conjunto
@@ -80,14 +73,7 @@ public:
      */
 
     Idioma consultar_idioma(string s) const;
-/*
-    @brief Consultar el diccionario de idiomas
-        \pre El diccionario existe
-        \post Retorna el diccionario de idiomas
 
-
-    void consultar_map_idiomas();
-*/
     //Escritura y lectura--------------------------------------------
 
     /** @brief Operación de escritura de la tabla de frecuencia de un idioma
@@ -102,13 +88,13 @@ public:
         \post Se ha escrito el texto codificado por en canal estándar de salida
      */
 
-    //void codifica(string s) const;
+//    void codifica(string s) const;
 
     /** @brief Operación de escritura del código decodificado
         \pre <em>cierto</em>
         \post Se ha escrito el texto decodificado por el canal estándar de salida
      */
-    //void decodifica(string s) const;
+//    void decodifica(string s) const;
 
 private:
     //Atributos--------------------------------------------

@@ -12,19 +12,18 @@ Cjt_Idiomas::Cjt_Idiomas(const Cjt_Idiomas& c){
 
 //Modificadoras--------------------------------------------
 
-void Cjt_Idiomas::anadir_idioma(const Idioma& l){
-    pair<string, Idioma> p;
-    if (not existe_idioma(l.consultar_nombre())){
-        p.first = l.consultar_nombre();
-        p.second = l;
-        m.insert(p);
-    } else {
-        modificar_idioma(l);
+void Cjt_Idiomas::anadir_modificar(){
+    Idioma l;
+    l.leer_nombre();
+    if (m.find(l.consultar_nombre()) == m.end()){ //si el idioma no está
+        l.leer_tabla_frecuencias();
+    }else{
+        map<string, Idioma>::iterator it = m.begin();
+        it = m.find(l.consultar_nombre());
+        it->second.leer_tabla_frecuencias();
     }
-}
-
-void Cjt_Idiomas::modificar_idioma(const Idioma& l){
-    m[l.consultar_nombre()] = l;
+    l.crear_idioma();
+    m.insert(make_pair(l.consultar_nombre(), l));
 }
 
 void Cjt_Idiomas::eliminar_idioma(string s){
@@ -54,3 +53,7 @@ void Cjt_Idiomas::escribir_tabla_frec_idioma(string s) const{
     it->second.escribir_tabla_frecuencias();
     //*it.second
 }
+
+//void Cjt_Idiomas::codifica(string s) const;
+
+//void Cjt_Idiomas::decodifica(string s) const;

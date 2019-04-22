@@ -12,11 +12,14 @@ Tabla_de_frecuencias::Tabla_de_frecuencias(const Tabla_de_frecuencias& t){
 
 //Modificadoras--------------------------------------------
 
-//Por determinar
+void Tabla_de_frecuencias::modificar_frecuencias(const pair<string, int>& p){
+    it = m.find(p.first);
+    it->second += p.second;
+}
 
 //Consultoras--------------------------------------------
 
-int Tabla_de_frecuencias::tamano(){
+int Tabla_de_frecuencias::tamano() const{
     return m.size();
 }
 
@@ -57,7 +60,10 @@ void Tabla_de_frecuencias::leer_tabla_frecuencias(){
     pair<string, int> p;
     for (int i = 0; i < n; ++i){
         cin >> p.first >> p.second;
-        m.insert(p);
+        if (m.find(p.first) == m.end()) {
+            m.insert(p);
+        }
+        else modificar_frecuencias(p);
     }
 }
 

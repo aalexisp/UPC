@@ -1,4 +1,4 @@
-//Build 2.0
+//Build 3.0
 /** @file idioma.hh
     @brief Especificación de la clase Idioma
 */
@@ -47,14 +47,6 @@ public:
 
     void crear_idioma();
 
-      /** @brief Se modifica la tabla de frecuencias
-
-        \pre La tabla de frecuencias y el treecode no están vacíos
-        \post La tabla de frecuencias se ha sustituido por la nueva tb
-    */
-
-    void modificar_tabla_frecuencias(const Tabla_de_frecuencias& tb); //Nuevos valores de las frecuencias
-
     //Consultoras--------------------------------------------
 
     /** @brief Consulta el nombre del idioma
@@ -73,6 +65,13 @@ public:
 
     void leer_nombre();
 
+    /** @brief Función para leer la tabla de frecuencias
+        /pre <em>cierto</em>
+        /post La tabla de frecuencias pasa a tener valores
+    */
+
+    void leer_tabla_frecuencias();
+
     /** @brief Operación de escritura de la tabla de frecuencias
         \pre <em>cierto</em>
         \post Escribe la tabla de frecuencias del idioma por el canal estándar de salida
@@ -86,7 +85,11 @@ public:
     */
 
     void escribir_treecode();
+/*
+    string codifica(string s); //retorna 0's y 1's
 
+    string decodifica(string s);
+*/
 private:
         //Atributos
         string nombre;

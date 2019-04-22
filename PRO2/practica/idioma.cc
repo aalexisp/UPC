@@ -20,16 +20,9 @@ Idioma::Idioma(const Idioma& l){
 //Modificadoras--------------------------------------------
 
 void Idioma::crear_idioma(){
-    Tabla_de_frecuencias aux;
-    aux.leer_tabla_frecuencias(); //Creamos la tabla de frecencias
-    t = aux;
     //crear nodos base
-    tree.crear_nodos_base(aux); //llenamos el vector de árboles con los de la tabla
+    tree.crear_nodos_base(t); //llenamos el vector de árboles con los de la tabla
     tree.crear_TreeCode(); //acabamos el árbol
-}
-
-void Idioma::modificar_tabla_frecuencias(const Tabla_de_frecuencias& tb){
-    t = tb;
 }
 
 //Consultoras--------------------------------------------
@@ -42,6 +35,10 @@ string Idioma::consultar_nombre() const{
 
 void Idioma::leer_nombre(){
     cin >> nombre;
+}
+
+void Idioma::leer_tabla_frecuencias() {
+    t.leer_tabla_frecuencias();
 }
 
 void Idioma::escribir_tabla_frecuencias() const{

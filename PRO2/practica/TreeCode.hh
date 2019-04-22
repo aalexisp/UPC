@@ -1,4 +1,4 @@
-//Build 2.0
+//Build 3.0
 /** @file TreeCode.hh
     @brief Especificación de la clase TreeCode
 */
@@ -58,7 +58,19 @@ public:
 
     //Consultoras--------------------------------------------
 
-    //Por determinar
+    /** @brief Función para codificar los carácteres
+        \pre El carácter existe y es codificable
+        \post Se retorna el caráter codificado en 0's y 1's
+    */
+
+//    string codifica(string s);
+
+    /** @brief Función para decodificar los carácteres
+        \pre El carácter existe y es decodificable
+        \post Se retorna el carácter decodificado como un string
+    */
+
+    //string decodifica(string s);
 
     //Lectura y escritura--------------------------------------------
 
@@ -76,6 +88,8 @@ private:
     //Para construir el treecode
     vector<BinTree<pair<string, int> > > v; //Vector de árboles binarios
 
+    map<string, string> m; //caracter - caracter codificado
+
     //Métodos privados--------------------------------------------
 
     //Función para escribir el treecode en preorden
@@ -86,6 +100,7 @@ private:
     void ordenar_vector_treecode();
     //Función para crear el par que van el el nodo de la raiz de a y b
     pair<string, int> suma(pair<string,int> a, pair<string, int> b);
-
+    //Función para vaciar los nodos base del TreeCode
+    void vaciar_nodos_base();
 };
 #endif

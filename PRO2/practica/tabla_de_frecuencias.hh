@@ -1,4 +1,4 @@
-//Build 2.0
+//Build 3.0
 /** @file tabla_de_frecuencias.hh
     @brief Especificación de la clase tabla_de_frecuencias
 */
@@ -10,7 +10,7 @@
 #include <string>
 using namespace std;
 
-/** @class tabla_de_frecuencias
+/** @class Tabla_de_frecuencias
     @brief Representa la tabla de frecuencias de un idioma
 
     Caracterizado por crear el árbol binario
@@ -39,7 +39,7 @@ public:
 
     //Modificadoras--------------------------------------------
 
-//Por determinar
+    void modificar_frecuencias(const pair<string, int>& p);
 
     //Consultoras--------------------------------------------
 
@@ -48,7 +48,7 @@ public:
         \post Retorna el tamaño de la tabla de frecuencias
     */
 
-    int tamano();
+    int tamano() const;
 
     /** @brief Consulta el par string, int (caràcter, frecuencia)
         \pre El diccionario del p.i no está vacío, además 0 <= i <= m.size();

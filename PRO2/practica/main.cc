@@ -12,11 +12,9 @@ int main (){
     Cjt_Idiomas c; //(n) tamañano n ? en la creadora ?
 
     for (int i = 0; i < n; ++i){
-        Idioma l;
-        l.leer_nombre();
-        l.crear_idioma();
-        c.anadir_idioma(l); //Si el idioma ya existía sustituye la tabla de frecuencias
+        c.anadir_modificar(); //Si el idioma ya existía se modifica la tabla
     }
+
     string op; //nombre de la opción
     string s; //nombre del idioma
     while (cin >> op and op != "fin"){
@@ -32,7 +30,9 @@ int main (){
                 c.consultar_idioma(s).escribir_treecode();
                 cout << endl;
             } else if (op == "codigos"){
-                //Escribir códigos
+                /*string x;
+                cin >> x;
+                c.consultar_idioma(s).codifica(x);*/
             }
         } else {
             if (op == "tabla_frec"){
