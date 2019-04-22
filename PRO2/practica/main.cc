@@ -1,7 +1,9 @@
-#include <iostream>
+/*
 #include "tabla_de_frecuencias.hh"
 #include "TreeCode.hh"
 #include "idioma.hh"
+#include <iostream>
+*/
 #include "cjt_idiomas.hh"
 
 using namespace std;

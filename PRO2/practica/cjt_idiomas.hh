@@ -8,9 +8,9 @@
 #include "idioma.hh"
 
 /** @class Cjt_Idiomas
-    @brief Representa un conjuto de idiomas
+    @brief Representa un conjuto de Idioma.
 
-    Se caracteríza por definirse como un vector de idiomas
+    Caracterizado por un diccionario de Idioma.
 */
 
 class Cjt_Idiomas{
@@ -20,7 +20,7 @@ public:
     /** @brief Creadora por defecto.
 
         Se ejecuta automáticamente al declarar un conjunto de idiomas.
-        \pre <em>cierto</em>
+        \pre <em>cierto</em>.
         \post El resultado es un conjunto de idioma vacío sin idiomas.
     */
 
@@ -28,34 +28,34 @@ public:
 
     /** @brief Creadora copiadora.
 
-        Permite declarar un idioma como copia de otro que ya existía
-        \pre <em>cierto</em>
-        \post El resultado es un idioma igual que i
+        Permite declarar un idioma como copia de otro que ya existía.
+        \pre <em>cierto</em>.
+        \post El resultado es un idioma igual que i.
     */
 
     Cjt_Idiomas(const Cjt_Idiomas& c);
 
     //Modificadoras--------------------------------------------
 
-    /** @brief Añade el idioma l al conjunto
-        \pre El idioma es válido y no está repetido (si lo está cambio la tabla de frecuencias y treecode)
-        \post El idioma l ha sido añadido al conjunto
+    /** @brief Añade el idioma l al conjunto.
+        \pre El idioma es válido y no está repetido (si lo está cambio la tabla de frecuencias y treecode).
+        \post El idioma l ha sido añadido al conjunto.
      */
 
     void anadir_modificar();
 
-    /** @brief Se elimina un idioma del conjunto a partir de su nombre
-        \pre El idioma existiía en el conjunto
-        \post El idioma ha sido eliminado del conjunto
+    /** @brief Se elimina un idioma del conjunto a partir de su nombre.
+        \pre El idioma existiía en el conjunto.
+        \post El idioma ha sido eliminado del conjunto.
     */
 
     void eliminar_idioma(string s); //en cjt
 
     //Consultoras--------------------------------------------
 
-    /** @brief Consulta el tamaño del conjunto
-        \pre <em>cierto</em>
-        \post Retorna el tamaño del conjunto
+    /** @brief Consulta el tamaño del conjunto.
+        \pre <em>cierto</em>.
+        \post Retorna el tamaño del conjunto.
      */
 
     int tamano() const;
@@ -67,34 +67,27 @@ public:
 
     bool existe_idioma(string s) const;
 
-    /** @brief Consulta el idioma según su nombre ?
-        \pre El idioma existe
-        \post Retorna el idioma con nombre s
+    /** @brief Consulta el idioma a partir un nombre.
+        \pre El idioma existe.
+        \post Retorna el idioma con nombre s.
      */
 
     Idioma consultar_idioma(string s) const;
 
     //Escritura y lectura--------------------------------------------
 
-    /** @brief Operación de escritura de la tabla de frecuencia de un idioma
-        \pre El idioma existe y su tabla no es vacía (si lo fuese se notificaría)
-        \post Se ha escrito por el canal estándar de salida la tabla de frecuencia (se llama a escribir del Idioma y luego a Frecuencias)
+        /** @brief Operación de escritura del código codificado.
+        \pre <em>cierto</em>.
+        \post Se ha escrito el texto codificado por en canal estándar de salida.
      */
 
-    void escribir_tabla_frec_idioma(string s) const;
+    void codifica(string s) const;
 
-        /** @brief Operación de escritura del código codificado
-        \pre <em>cierto</em>
-        \post Se ha escrito el texto codificado por en canal estándar de salida
+    /** @brief Operación de escritura del código decodificado.
+        \pre <em>cierto</em>.
+        \post Se ha escrito el texto decodificado por el canal estándar de salida.
      */
-
-//    void codifica(string s) const;
-
-    /** @brief Operación de escritura del código decodificado
-        \pre <em>cierto</em>
-        \post Se ha escrito el texto decodificado por el canal estándar de salida
-     */
-//    void decodifica(string s) const;
+    void decodifica(string s) const;
 
 private:
     //Atributos--------------------------------------------

@@ -4,7 +4,7 @@
 # Project related configuration options
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = utf-8
-PROJECT_NAME           = "Práctica PRO2 - 'Idiomas'."
+PROJECT_NAME           = "Práctica PRO2 - 'Codificar y decoficiar Idiomas'."
 PROJECT_NUMBER         = "version 3 22-abr-2019"
 OUTPUT_DIRECTORY       = "./DOC"
 CREATE_SUBDIRS         = NO
