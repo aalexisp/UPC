@@ -1,4 +1,4 @@
-//Build 3.0
+//Build 4.0
 /** @file TreeCode.hh
     @brief Especificación de la clase TreeCode
 */
@@ -16,6 +16,7 @@
     @brief Representa los caracteres y frecuencias de un Idioma.
 
     Caracterizado por ser un árbol binario.
+    Se forma apartir de la Tabla_de_frecuencias de forma recursiva.
 */
 class TreeCode {
 public:
@@ -53,32 +54,46 @@ public:
         \post El parámetro implícito pasa a contener los valores correspondientes.
     */
 
-    void crear_TreeCode(); //A partir de la tabla de frecuencias
+    void crear_TreeCode(const Tabla_de_frecuencias& tb);
+
+    /** @brief Crea la tabla de códigos de cada carácter.
+        \pre El treecode y la tabla de frecuencias existen y tienen valores.
+        \post La tabla de códigos pasa a contener sus valores correspondientes.
+    */
+
+    void crear_tabla_codigos(const BinTree<pair<string, int> >& tc, pair<string, string> p, Tabla_de_frecuencias tb);
 
     //Consultoras--------------------------------------------
 
-    /** @brief Función para codificar los carácteres
-        \pre El carácter existe y es codificable
-        \post Se retorna el caráter codificado en 0's y 1's
+    /** @brief Función para codificar los carácteres.
+        \pre El carácter existe y es codificable.
+        \post Se retorna el caráter codificado en 0's y 1's.
     */
 
-//    string codifica(string s);
+    string codifica(string s);
 
-    /** @brief Función para decodificar los carácteres
-        \pre El carácter existe y es decodificable
-        \post Se retorna el carácter decodificado como un string
+    /** @brief Función para decodificar los carácteres.
+        \pre El carácter existe y es decodificable.
+        \post Se retorna el carácter decodificado como un string.
     */
 
-    //string decodifica(string s);
+    string decodifica(string s);
 
     //Lectura y escritura--------------------------------------------
 
-    /** @brief Operación de escritura.
+    /** @brief Operación de escritura del treecode.
 
         \pre <em>cierto</em>.
         \post Se escribe el treecode en preorden e inorden por el canal estándar de salida.
     */
     void escribir_treecode();
+
+    /** @brief Operación de escritura de la tabla de codigos.
+
+        \pre <em>cierto</em>.
+        \post Se escribe el treecode en preorden e inorden por el canal estándar de salida.
+    */
+    void escribir_codigos(string s);
 
 private:
     //Atributos--------------------------------------------
@@ -87,7 +102,7 @@ private:
     //Para construir el treecode
     vector<BinTree<pair<string, int> > > v; //Vector de árboles binarios
 
-    map<string, string> m; //caracter - caracter codificado
+    map<string, string> tm; //Tabla de los códigos
 
     //Métodos privados--------------------------------------------
 

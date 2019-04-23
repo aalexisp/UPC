@@ -25,22 +25,45 @@ void TreeCode::crear_nodos_base(Tabla_de_frecuencias tbl){
     }
 }
 
-void TreeCode::crear_TreeCode(){
+void TreeCode::crear_TreeCode(const Tabla_de_frecuencias& tb){
 	if(v.size() == 1){
         t = v[0];
+        pair<string, string> p;
+        crear_tabla_codigos(t, p, tb);
 	} else {
         ordenar_vector_treecode();
 		pair<string, int> p = suma(v[0].value(),v[1].value());
 		BinTree<pair<string,int > > a (p, v[0], v[1]);
 		v.erase(v.begin(),v.begin()+2);
 		v.push_back(a);
-		crear_TreeCode();
+		crear_TreeCode(tb);
+    }
+}
+
+void TreeCode::crear_tabla_codigos(const BinTree<pair<string, int> >& tc, pair<string, string> p, Tabla_de_frecuencias tb){
+    if (tb.esta(p.first) and tm.size() < tb.tamano()){
+        tm.insert(pair<string, string>(p.first, p.second));
+    }
+
+    pair<string,string> aux;
+
+    if (not tc.left().empty()){
+        aux.first = tc.left().value().first;
+        aux.second = p.second + '0';
+        crear_tabla_codigos(tc.left(), aux, tb);
+    }
+    if (not tc.right().empty()){
+        aux.first = tc.right().value().first;
+        aux.second = p.second + '1';
+        crear_tabla_codigos(tc.right(), aux, tb);
     }
 }
 
 //Consultoras--------------------------------------------
 
-//Por determinar
+//string TreeCode::codifica(string s);
+
+//string TreeCode::decodifica(string s);
 
 //Lectura y escritura--------------------------------------------
 
@@ -49,6 +72,22 @@ void TreeCode::escribir_treecode(){
     escribir_preorden(t);
     cout << "recorrido en inorden:" << endl;
     escribir_inorden(t);
+}
+
+void TreeCode::escribir_codigos(string s){
+    map<string, string>::const_iterator it;
+    if (s != "todos" and tm.find(s) != tm.end()){
+        it = tm.find(s);
+        cout << it->first << " " << it->second << endl;
+    } else if (s == "todos") {
+        it = tm.begin();
+        while (it != tm.end()){
+            cout << it->first << " " << it->second << endl;
+            ++it;
+        }
+    } else {
+        cout << "El idioma no existe o el caracter no esta en el idioma" << endl;
+    }
 }
 
 //Métodos privados--------------------------------------------

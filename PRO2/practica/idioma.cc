@@ -22,13 +22,17 @@ Idioma::Idioma(const Idioma& l){
 void Idioma::crear_idioma(){
     //crear nodos base
     tree.crear_nodos_base(t); //llenamos el vector de árboles con los de la tabla
-    tree.crear_TreeCode(); //acabamos el árbol
+    tree.crear_TreeCode(t); //acabamos el árbol
 }
 
 //Consultoras--------------------------------------------
 
 string Idioma::consultar_nombre() const{
     return nombre;
+}
+
+bool Idioma::existe_caracter(string s) const{
+    return t.esta(s);
 }
 
 //Escritura y lectura--------------------------------------------
@@ -47,4 +51,8 @@ void Idioma::escribir_tabla_frecuencias() const{
 
 void Idioma::escribir_treecode(){
     tree.escribir_treecode();
+}
+
+void Idioma::escribir_codigos(string st){
+    tree.escribir_codigos (st);
 }

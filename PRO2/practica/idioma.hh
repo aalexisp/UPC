@@ -1,4 +1,4 @@
-//Build 3.0
+//Build 4.0
 /** @file idioma.hh
     @brief Especificación de la clase Idioma
 */
@@ -9,9 +9,9 @@
 #include "tabla_de_frecuencias.hh"
 
 /** @class Idioma
-    @brief Representa un alfabeto y tabla de frecuencia.
+    @brief Representa un alfabeto caracterizaco por un TreeCode y una Tabla_de_frecuencias.
 
-    Se caracteríza por un árbola binario y una tabla de frecuencias.
+    Se caracteríza por un árbola binario o Treecode y una Tabla_de_frecuencias.
 */
 
 class Idioma{
@@ -54,6 +54,27 @@ public:
 
     string consultar_nombre() const;
 
+    /** @brief Consulta si el carácter s existe en la Tabla_de_frecuencias.
+        \pre <em>cierto</em>.
+        \post Retorna true si el carácter existe en la Tabla_de_frecuencias.
+    */
+
+    bool existe_caracter(string s) const;
+
+    /** @brief Función para codificar los carácteres.
+        \pre El carácter existe y es codificable.
+        \post Se retorna el caráter codificado en 0's y 1's.
+    */
+
+    string codifica(string s);
+
+    /** @brief Función para decodificar los carácteres.
+        \pre El carácter existe y es decodificable.
+        \post Se retorna el carácter decodificado como un string.
+    */
+
+    string decodifica(string s);
+
     //Escritura y lectura--------------------------------------------
 
     /** @brief Se lee el nombre del idioma que se va a añadir.
@@ -83,11 +104,14 @@ public:
     */
 
     void escribir_treecode();
-/*
-    string codifica(string s); //retorna 0's y 1's
 
-    string decodifica(string s);
-*/
+    /** @brief Operación de escritura de los códigos del Idioma.
+        \pre <em>cierto</em>.
+        \post Escribe los códigos del idioma por el canar estándar de salida.
+    */
+
+    void escribir_codigos(string st);
+
 private:
         //Atributos
         string nombre;

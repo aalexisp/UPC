@@ -32,6 +32,10 @@ pair<string, int> Tabla_de_frecuencias::consultar_iesimo(int i){
     return (*it);
 }
 
+bool Tabla_de_frecuencias::esta(string s) const{
+    return m.find(s) != m.end();
+}
+
 /*
 string Tabla_de_frecuencias::consultar_iesimo_string(int i){
     it = m.begin();

@@ -1,4 +1,4 @@
-//Build 3.0
+//Build 4.0
 /** @file cjt_idiomas.hh
     @brief Especificación de la clase cjt_idiomas
 */
@@ -10,7 +10,7 @@
 /** @class Cjt_Idiomas
     @brief Representa un conjuto de Idioma.
 
-    Caracterizado por un diccionario de Idioma.
+    Caracterizado por ser un conjunto de Idioma.
 */
 
 class Cjt_Idiomas{
@@ -49,7 +49,8 @@ public:
         \post El idioma ha sido eliminado del conjunto.
     */
 
-    void eliminar_idioma(string s); //en cjt
+    void eliminar_idioma(string s); //En caso de que fuera necesario
+    //No implementar hasta juego de pruebas completo
 
     //Consultoras--------------------------------------------
 

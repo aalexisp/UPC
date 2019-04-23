@@ -1,12 +1,4 @@
-/*
-#include "tabla_de_frecuencias.hh"
-#include "TreeCode.hh"
-#include "idioma.hh"
-#include <iostream>
-*/
 #include "cjt_idiomas.hh"
-
-using namespace std;
 
 int main (){
     int n;
@@ -19,36 +11,45 @@ int main (){
 
     string op; //nombre de la opción
     string s; //nombre del idioma
+    string st; //para los codigos
+    bool primer = true;
     while (cin >> op and op != "fin"){
         cin >> s; //leemos el nombre del idioma
+        if (primer){
+            primer = false;
+        } else cout << endl;
         if (c.existe_idioma(s)){
             if (op == "tabla_frec"){
                 //Mostrar la tabla de frecuencia del idioma s
-                cout << "Tabla de frecuencias de " << s << ":" << endl;
-                c.consultar_idioma(s).escribir_tabla_frecuencias(); //(l)?
-                cout << endl;
+                cout << "Tabla de frecuencias de " << s << ':' << endl;
+                c.consultar_idioma(s).escribir_tabla_frecuencias();
             } else if (op == "treecode"){
-                cout << "Treecode de " << s << ":" << endl;
+                //Mostrar el treecode del idioma s
+                cout << "Treecode de " << s << ':' << endl;
                 c.consultar_idioma(s).escribir_treecode();
-                cout << endl;
             } else if (op == "codigos"){
-                /*string x;
-                cin >> x;
-                c.consultar_idioma(s).codifica(x);*/
+                //Mostrar los códigos del idioma s
+                cin >> st;
+                if (st == "todos") cout << "Codigos de " << s << ':' << endl;
+                else cout << "Codigo de " << st << " en " << s << ":" << endl;
+                c.consultar_idioma(s).escribir_codigos(st);
             }
         } else {
             if (op == "tabla_frec"){
                 cout << "Tabla de frecuencias de " << s << ':' << endl;
                 cout << "El idioma no existe" << endl;
-                cout << endl;
             } else if (op == "treecode"){
                 cout << "Treecode de " << s << ':' << endl;
                 cout << "El idioma no existe" << endl;
-                cout << endl;
             } else if (op == "codigos"){
-                cout << "Codigos de " << s << ':' << endl;
-                cout << "El idioma no existe" << endl;
-                cout << endl;
+                cin >> st;
+                if (st == "todos"){
+                    cout << "Codigos de " << s << ':' << endl;
+                    cout << "El idioma no existe" << endl;
+                } else {
+                    cout << "Codigo de " << st << " en " << s << ":" << endl;
+                    cout << "El idioma no existe o el caracter no esta en el idioma" << endl;
+                }
             }
         }
     }

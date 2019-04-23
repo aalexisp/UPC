@@ -47,12 +47,7 @@ Idioma Cjt_Idiomas::consultar_idioma(string s) const{
 }
 
 //Escritura y lectura--------------------------------------------
-/*
-void Cjt_Idiomas::escribir_tabla_frec_idioma(string s) const{
-    map<string, Idioma>::const_iterator it = m.find(s);
-    it->second.escribir_tabla_frecuencias();
-}
-*/
+
 //void Cjt_Idiomas::codifica(string s) const;
 
 //void Cjt_Idiomas::decodifica(string s) const;

@@ -1,4 +1,4 @@
-//Build 3.0
+//Build 4.0
 /** @file tabla_de_frecuencias.hh
     @brief Especificación de la clase tabla_de_frecuencias
 */
@@ -16,7 +16,9 @@ using namespace std;
 /** @class Tabla_de_frecuencias
     @brief Representa la tabla de frecuencias de un idioma.
 
-    Caracterizado por crear el árbol binario.
+    Caracterizado por crear el árbol binario o TreeCode.
+    Una Tabla_de_frecuencias está constituido por un caracter y
+    un entero que indica el número de veces que aparece ese carácter en el Idioma.
 */
 class Tabla_de_frecuencias {
 public:
@@ -62,10 +64,18 @@ public:
         \post El resultado es el par caracter, frecuencia.
      */
 
-    pair<string, int> consultar_iesimo(int i); //Para consultar el caracter y frecuencia
+    pair<string, int> consultar_iesimo(int i);
 
 //  string consultar_iesimo_string(int i); //Para consultar el par carácter, frecuencia
 //  int consultar_iesimo_int(int i);
+//PUESTO QUE NO SÉ SI SE PUEDE RETORNAR UN PAIR DEJO ESTAS FUNCIONES AQUI QUE SERÍA LO EQUIVALENTE A LA ANTERIOR
+
+    /** @brief Consulta si el carácter s está en la tabla de frecuencias (en el map).
+        \pre <em>cierto</em>.
+        \post Retorna cierto si se ha encontrado el carácter, falso en caso contrario.
+    */
+
+    bool esta (string s) const;
 
     //Lectura y escritura--------------------------------------------
 
@@ -83,7 +93,7 @@ public:
         \post Escribe la tabla de frecuencias por el canal estándar de salida.
      */
 
-    void escribir_tabla_frecuencias() const; //Frecuencias y carácteres
+    void escribir_tabla_frecuencias() const;
 
 
 private:
