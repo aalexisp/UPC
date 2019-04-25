@@ -1,4 +1,4 @@
-//Build 4.0
+//Build 5.0
 /** @file cjt_idiomas.hh
     @brief Especificación de la clase cjt_idiomas
 */
@@ -68,13 +68,6 @@ public:
 
     bool existe_idioma(string s) const;
 
-    /** @brief Consulta el idioma a partir un nombre.
-        \pre El idioma existe.
-        \post Retorna el idioma con nombre s.
-     */
-
-    Idioma consultar_idioma(string s) const;
-
     //Escritura y lectura--------------------------------------------
 
         /** @brief Operación de escritura del código codificado.
@@ -90,9 +83,38 @@ public:
      */
     void decodifica(string s) const;
 
+    /** @brief Operación de escritura del TreeCode de un Idioma.
+        \pre El TreeCode ha sido declarado y tiene valores.
+        \post Se ha escrito el TreeCode del Idioma s por el canal estándar de salida.
+    */
+
+    void escribir_treecode(string s)const;
+
+    /** @brief Operación de escritura de la tabla_de_frecuencias de un Idioma.
+        \pre  La tabla_de_frecuencias ha sido declarada y tiene valores.
+        \post Se ha escrito la tabla_de_frecuencias del Idioma s por el canal estándar de salida.
+    */
+
+    void escribir_tabla_frecuencias(string s)const;
+
+    /** @brief Operación de escritura de la tabla de códigos de un Idioma.
+        \pre  La tabla de códigos ha sido declarada y tiene valores.
+        \post Se ha escrito la tabla de códigos del Idioma s por el canal estándar de salida.
+    */
+
+    void escribir_codigos(string s, string st)const;
 private:
     //Atributos--------------------------------------------
 
     map<string, Idioma> m; //nombre del idioma y el idioma
+
+    //Métodos privados--------------------------------------------
+
+    /** @brief Consulta el idioma a partir un nombre.
+        \pre El idioma existe.
+        \post Retorna el idioma con nombre s.
+     */
+
+    Idioma consultar_idioma(string s) const;
 };
 #endif

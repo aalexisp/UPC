@@ -1,10 +1,17 @@
+/** @file TreeCode.cc
+    @brief Código de la clase TreeCode
+*/
 #include "TreeCode.hh"
 
 //Constructoras--------------------------------------------
 
-TreeCode::TreeCode(){
-    BinTree<pair<string, int> > t;
-    vector<BinTree<pair<string, int> > > v;
+TreeCode::TreeCode(){}
+
+TreeCode::TreeCode(const Tabla_de_frecuencias& tf){
+    crear_nodos_base(tf);
+    crear_TreeCode();
+    pair<string, string> p;
+    crear_tabla_codigos(t, p, tf);
 }
 
 TreeCode::TreeCode(const TreeCode& tree){
@@ -14,55 +21,11 @@ TreeCode::TreeCode(const TreeCode& tree){
 
 //Modificadoras--------------------------------------------
 
-void TreeCode::crear_nodos_base(Tabla_de_frecuencias tbl){
-    if (v.size() > 0) vaciar_nodos_base();
-    BinTree<pair<string, int> > b;
-    pair<string, int> p;
-    for(int i = 0; i < tbl.tamano(); ++i){
-        p = tbl.consultar_iesimo(i);
-        b = BinTree<pair<string, int> > (p);
-        v.push_back(b);
-    }
-}
-
-void TreeCode::crear_TreeCode(const Tabla_de_frecuencias& tb){
-	if(v.size() == 1){
-        t = v[0];
-        pair<string, string> p;
-        crear_tabla_codigos(t, p, tb);
-	} else {
-        ordenar_vector_treecode();
-		pair<string, int> p = suma(v[0].value(),v[1].value());
-		BinTree<pair<string,int > > a (p, v[0], v[1]);
-		v.erase(v.begin(),v.begin()+2);
-		v.push_back(a);
-		crear_TreeCode(tb);
-    }
-}
-
-void TreeCode::crear_tabla_codigos(const BinTree<pair<string, int> >& tc, pair<string, string> p, Tabla_de_frecuencias tb){
-    if (tb.esta(p.first) and tm.size() < tb.tamano()){
-        tm.insert(pair<string, string>(p.first, p.second));
-    }
-
-    pair<string,string> aux;
-
-    if (not tc.left().empty()){
-        aux.first = tc.left().value().first;
-        aux.second = p.second + '0';
-        crear_tabla_codigos(tc.left(), aux, tb);
-    }
-    if (not tc.right().empty()){
-        aux.first = tc.right().value().first;
-        aux.second = p.second + '1';
-        crear_tabla_codigos(tc.right(), aux, tb);
-    }
-}
+//No necesarias
 
 //Consultoras--------------------------------------------
 
 //string TreeCode::codifica(string s);
-
 //string TreeCode::decodifica(string s);
 
 //Lectura y escritura--------------------------------------------
@@ -116,10 +79,6 @@ bool comp(BinTree<pair<string,int> > a, BinTree<pair<string,int> > b){
 	return false;
 } //Método no privado pero se usa dentro de uno
 
-void TreeCode::ordenar_vector_treecode(){
-    sort(v.begin(),v.end(),comp);
-}
-
 pair<string,int> TreeCode::suma(pair<string,int> a, pair<string, int> b){
 	pair<string,int> p;
 	p.second = a.second + b.second;
@@ -128,8 +87,53 @@ pair<string,int> TreeCode::suma(pair<string,int> a, pair<string, int> b){
 	return p;
 }
 
-void TreeCode::vaciar_nodos_base(){
-    for (int i = 0; i < v.size(); ++i){
-        v.pop_back();
+void TreeCode::crear_nodos_base(Tabla_de_frecuencias tf){
+    BinTree<pair<string, int> > b;
+    pair<string, int> p;
+    for(int i = 0; i < tf.tamano(); ++i){
+        p = tf.consultar_iesimo(i);
+        b = BinTree<pair<string, int> > (p);
+        v.push_back(b);
+    }
+    sort(v.begin(),v.end(),comp);
+}
+
+void TreeCode::insertar(BinTree<pair<string, int> >& tree){
+    v.push_back(tree);
+    for (int i = 0; i < v.size()-1; ++i){
+        if (comp(tree, v[v.size()-2-i])){
+            swap(v[v.size()-1-i], v[v.size()-2-i]);
+        }
+    }
+}
+
+void TreeCode::crear_TreeCode(){
+	if(v.size() == 1){
+        t = v[0];
+	} else {
+		pair<string, int> p = suma(v[0].value(),v[1].value());
+		BinTree<pair<string,int > > tree (p, v[0], v[1]);
+		v.erase(v.begin(),v.begin()+2);
+        insertar(tree);
+		crear_TreeCode();
+    }
+}
+
+void TreeCode::crear_tabla_codigos(const BinTree<pair<string, int> >& tc, pair<string, string> p, Tabla_de_frecuencias tf){
+    if (tf.esta(p.first) and tm.size() < tf.tamano()){
+        tm.insert(pair<string, string>(p.first, p.second));
+    }
+
+    pair<string,string> aux;
+
+    if (not tc.left().empty()){
+        aux.first = tc.left().value().first;
+        aux.second = p.second + '0';
+        crear_tabla_codigos(tc.left(), aux, tf);
+    }
+    if (not tc.right().empty()){
+        aux.first = tc.right().value().first;
+        aux.second = p.second + '1';
+        crear_tabla_codigos(tc.right(), aux, tf);
     }
 }

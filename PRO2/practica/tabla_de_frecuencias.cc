@@ -1,13 +1,18 @@
+/** @file tabla_de_frecuencias.cc
+    @brief Código de la clase Tabla_de_frecuencias
+*/
+
 #include "tabla_de_frecuencias.hh"
 
 //Constructoras--------------------------------------------
 
 Tabla_de_frecuencias::Tabla_de_frecuencias(){
-    map <string, int> m;
+    it = m.begin();
 }
 
-Tabla_de_frecuencias::Tabla_de_frecuencias(const Tabla_de_frecuencias& t){
-    m = t.m;
+Tabla_de_frecuencias::Tabla_de_frecuencias(const Tabla_de_frecuencias& tf){
+    m = tf.m;
+    it = tf.it;
 }
 
 //Modificadoras--------------------------------------------
@@ -35,26 +40,6 @@ pair<string, int> Tabla_de_frecuencias::consultar_iesimo(int i){
 bool Tabla_de_frecuencias::esta(string s) const{
     return m.find(s) != m.end();
 }
-
-/*
-string Tabla_de_frecuencias::consultar_iesimo_string(int i){
-    it = m.begin();
-    while (i != 0){
-        ++it;
-        --i;
-    }
-    return it->first;
-}
-
-int Tabla_de_frecuencias::consultar_iesimo_int(int i){
-    it = m.begin();
-    while (i != 0){
-        ++it;
-        --i;
-    }
-    return it->second;
-}
-*/
 
 //Lectura y escritura--------------------------------------------
 

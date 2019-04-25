@@ -1,4 +1,4 @@
-//Build 4.0
+//Build 5.0
 /** @file TreeCode.hh
     @brief Especificación de la clase TreeCode
 */
@@ -10,6 +10,7 @@
 #ifndef NO_DIAGRAM
 #include "BinTree.hh"
 #include <vector>
+#include <algorithm>
 #endif
 
 /** @class TreeCode
@@ -22,7 +23,7 @@ class TreeCode {
 public:
     //Constructoras--------------------------------------------
 
-    /** @brief Creadora por defecto.
+    /** @brief Creadora por defecto sin parámetros.
 
         Se ejecuta automáticamente al declarar un TreeCode.
         \pre <em>cierto</em>.
@@ -30,6 +31,15 @@ public:
     */
 
     TreeCode();
+
+    /** @brief Creadora por defecto con parámetros.
+
+        Se ejecuta automáticamente al declarar un TreeCode.
+        \pre <em>cierto</em>.
+        \post El resultado es un TreeCode vacío, un árbol binario.
+    */
+
+    TreeCode(const Tabla_de_frecuencias& tf);
 
     /** @brief Creadora copiadora.
 
@@ -42,26 +52,7 @@ public:
 
     //Modificadoras--------------------------------------------
 
-    /** @brief Llena el vector de árboles (nodos base).
-        \pre El vector de bintrees ha sido declarado y está vacío.
-        \post El parámetro implícito pasa a contener los valores de la tabla de frecuencias.
-    */
-
-    void crear_nodos_base(Tabla_de_frecuencias tbl);
-
-    /** @brief Llena el TreeCode con los valores correspondientes.
-        \pre El TreeCode ha sido declarado y está vacío.
-        \post El parámetro implícito pasa a contener los valores correspondientes.
-    */
-
-    void crear_TreeCode(const Tabla_de_frecuencias& tb);
-
-    /** @brief Crea la tabla de códigos de cada carácter.
-        \pre El treecode y la tabla de frecuencias existen y tienen valores.
-        \post La tabla de códigos pasa a contener sus valores correspondientes.
-    */
-
-    void crear_tabla_codigos(const BinTree<pair<string, int> >& tc, pair<string, string> p, Tabla_de_frecuencias tb);
+//MODIFICADORAS NO NECESARIAS POR EL MOMENTO
 
     //Consultoras--------------------------------------------
 
@@ -121,15 +112,6 @@ private:
 
     void escribir_inorden(const BinTree<pair<string, int> >& b); //Función para escribir el treecode en inorden
 
-
-    /** @brief Función para ordenar el vector de árboles.
-        \pre El treecode existe y no está vacío.
-        \post El vector de bintree's pasa a estar ordenado.
-    */
-
-    void ordenar_vector_treecode(); //Función para ordenar el vector de árboles para formar el árbol
-
-
     /** @brief Función para sumar las frecuencias de diversas tablas.
         \pre La tabla de frecuencias del p.i tiene valores.
         \post Las frecuencias de la tabla del p.i pasa a tener nuevos valores.
@@ -137,13 +119,33 @@ private:
 
     pair<string, int> suma(pair<string,int> a, pair<string, int> b); //Función para crear el par que van el el nodo de la raiz de a y b
 
-
-    /** @brief Función para vacíar los nodos base.
-        \pre El vector de nodos base no está vacío.
-        \post El vector de nodos base pasa a estar vacío.
+    /** @brief Llena el vector de árboles (nodos base).
+        \pre El vector de bintrees ha sido declarado y está vacío.
+        \post El parámetro implícito pasa a contener los valores de la tabla de frecuencias.
     */
 
-    void vaciar_nodos_base(); //Función para vaciar los nodos base del TreeCode
+    void crear_nodos_base(Tabla_de_frecuencias tf);
+
+    /** @brief Función para insertar un bintree en el vector de bintree's
+        \pre <em>cierto</em>
+        \post El bintree "tree" queda incluído en el vector del p.i
+    */
+
+    void insertar(BinTree<pair<string, int> >& tree);
+
+    /** @brief Llena el TreeCode con los valores correspondientes.
+        \pre El TreeCode ha sido declarado y está vacío.
+        \post El parámetro implícito pasa a contener los valores correspondientes.
+    */
+
+    void crear_TreeCode();
+
+    /** @brief Crea la tabla de códigos de cada carácter.
+        \pre El treecode y la tabla de frecuencias existen y tienen valores.
+        \post La tabla de códigos pasa a contener sus valores correspondientes.
+    */
+
+    void crear_tabla_codigos(const BinTree<pair<string, int> >& tc, pair<string, string> p, Tabla_de_frecuencias tf);
 
 };
 #endif

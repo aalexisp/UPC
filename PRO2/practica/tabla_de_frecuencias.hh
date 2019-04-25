@@ -1,4 +1,4 @@
-//Build 4.0
+//Build 5.0
 /** @file tabla_de_frecuencias.hh
     @brief Especificación de la clase tabla_de_frecuencias
 */
@@ -65,10 +65,6 @@ public:
      */
 
     pair<string, int> consultar_iesimo(int i);
-
-//  string consultar_iesimo_string(int i); //Para consultar el par carácter, frecuencia
-//  int consultar_iesimo_int(int i);
-//PUESTO QUE NO SÉ SI SE PUEDE RETORNAR UN PAIR DEJO ESTAS FUNCIONES AQUI QUE SERÍA LO EQUIVALENTE A LA ANTERIOR
 
     /** @brief Consulta si el carácter s está en la tabla de frecuencias (en el map).
         \pre <em>cierto</em>.

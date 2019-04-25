@@ -1,4 +1,4 @@
-//Build 4.0
+//Build 5.0
 /** @file idioma.hh
     @brief Especificación de la clase Idioma
 */
@@ -25,7 +25,7 @@ public:
         \post El resultado es un idioma vacío sin caracteres.
     */
 
-    Idioma();
+    Idioma(string nom, const Tabla_de_frecuencias& tf);
 
     /** @brief Creadora copiadora.
 
@@ -38,12 +38,7 @@ public:
 
     //Modificadoras--------------------------------------------
 
-    /** @brief Crea el idioma a partir de su tabla de frecuencias.
-        \pre Idioma está inicializado.
-        \post Se ha creado un idioma con su tabla de frecuencias y treecode correspondientes.
-    */
-
-    void crear_idioma();
+//MODIFICADORAS NO NECESARIAS POR EL MOMENTO
 
     //Consultoras--------------------------------------------
 
@@ -76,13 +71,6 @@ public:
     string decodifica(string s);
 
     //Escritura y lectura--------------------------------------------
-
-    /** @brief Se lee el nombre del idioma que se va a añadir.
-        /pre <em>cierto</em>.
-        /post El p.i pasa a tener nombre.
-    */
-
-    void leer_nombre();
 
     /** @brief Función para leer la tabla de frecuencias.
         /pre <em>cierto</em>.
