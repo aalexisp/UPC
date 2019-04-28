@@ -61,14 +61,14 @@ public:
         \post Se retorna el caráter codificado en 0's y 1's.
     */
 
-    string codifica(string s);
+    string codifica(string s) const;
 
     /** @brief Función para decodificar los carácteres.
         \pre El carácter existe y es decodificable.
         \post Se retorna el carácter decodificado como un string.
     */
 
-    string decodifica(string s);
+    string decodifica(string s) const;
 
     //Escritura y lectura--------------------------------------------
 

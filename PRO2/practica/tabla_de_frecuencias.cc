@@ -6,20 +6,17 @@
 
 //Constructoras--------------------------------------------
 
-Tabla_de_frecuencias::Tabla_de_frecuencias(){
-    it = m.begin();
-}
+Tabla_de_frecuencias::Tabla_de_frecuencias(){}
 
 Tabla_de_frecuencias::Tabla_de_frecuencias(const Tabla_de_frecuencias& tf){
     m = tf.m;
-    it = tf.it;
 }
 
 //Modificadoras--------------------------------------------
+//SIN MODIFICADORAS PÚBLICAS
 
-void Tabla_de_frecuencias::modificar_frecuencias(const pair<string, int>& p){
-    it = m.find(p.first);
-    it->second += p.second;
+void Tabla_de_frecuencias::cambio(map<string, int>::const_iterator& aux)const{
+    aux = m.begin();
 }
 
 //Consultoras--------------------------------------------
@@ -28,13 +25,22 @@ int Tabla_de_frecuencias::tamano() const{
     return m.size();
 }
 
-pair<string, int> Tabla_de_frecuencias::consultar_iesimo(int i){
-    it = m.begin();
-    while (i != 0 and it != m.end()){
-        ++it;
+/*
+pair<string, int> Tabla_de_frecuencias::consultar_iesimo(int i) const{
+    map<string, int>::const_iterator it1 = m.begin();
+    while (i != 0 and it1 != m.end()){
+        ++it1;
         --i;
     }
-    return (*it);
+    return (*it1);
+}*/
+
+pair<string, int> Tabla_de_frecuencias::consultar_iesimo(int i, map<string, int>::const_iterator& aux)const{
+    if (i == 0) return (*aux);
+    else {
+        ++aux;
+        return (*aux);
+    }
 }
 
 bool Tabla_de_frecuencias::esta(string s) const{
@@ -57,10 +63,14 @@ void Tabla_de_frecuencias::leer_tabla_frecuencias(){
 }
 
 void Tabla_de_frecuencias::escribir_tabla_frecuencias() const{
-    for(map<string, int>::const_iterator it = m.begin(); it != m.end(); ++it){
-        cout << it->first << ' ' << it->second << endl;
+    for(map<string, int>::const_iterator it2 = m.begin(); it2 != m.end(); ++it2){
+        cout << it2->first << ' ' << it2->second << endl;
     }
 }
 
 //Métodos privados--------------------------------------------
-//Por definir
+
+void Tabla_de_frecuencias::modificar_frecuencias(const pair<string, int>& p){
+    map<string, int>::iterator it = m.find(p.first);
+    it->second += p.second;
+}

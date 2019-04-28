@@ -44,14 +44,6 @@ public:
 
     void anadir_modificar();
 
-    /** @brief Se elimina un idioma del conjunto a partir de su nombre.
-        \pre El idioma existiía en el conjunto.
-        \post El idioma ha sido eliminado del conjunto.
-    */
-
-    void eliminar_idioma(string s); //En caso de que fuera necesario
-    //No implementar hasta juego de pruebas completo
-
     //Consultoras--------------------------------------------
 
     /** @brief Consulta el tamaño del conjunto.

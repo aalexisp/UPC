@@ -9,9 +9,9 @@
 Idioma::Idioma(string nom, const Tabla_de_frecuencias& tf){
     nombre = nom;
     t = tf; //Tabla de frecuencias
-    //TreeCode auxt(tf); //TreeCode
+    tree = TreeCode(tf); //TreeCode
+    //TreeCode auxt(tf);
     //tree = auxt;
-    tree = TreeCode(tf);
     //m = tree.obtener_tabla_codificacion() //Texto sin codificar y decodificado
 }
 

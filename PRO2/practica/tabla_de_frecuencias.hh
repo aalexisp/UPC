@@ -44,11 +44,7 @@ public:
 
     //Modificadoras--------------------------------------------
 
-    /** @brief Modifica la frecuencia de un carácter.
-        \pre El carácter existe y tiene frecuencia.
-        \post La frecuencia del carácter ha sido modificada.
-    */
-    void modificar_frecuencias(const pair<string, int>& p);
+    void cambio(map<string, int>::const_iterator& aux)const;
 
     //Consultoras--------------------------------------------
 
@@ -64,7 +60,7 @@ public:
         \post El resultado es el par caracter, frecuencia.
      */
 
-    pair<string, int> consultar_iesimo(int i);
+    pair<string, int> consultar_iesimo(int i, map<string, int>::const_iterator& aux)const;
 
     /** @brief Consulta si el carácter s está en la tabla de frecuencias (en el map).
         \pre <em>cierto</em>.
@@ -95,8 +91,13 @@ public:
 private:
     //Atributos--------------------------------------------
     map <string, int> m; //Valores que van dentro del árbol
-    map<string, int>::iterator it; //Iterador para el map
-    //Métodos privados--------------------------------------------
-//por definir
+    //map<string, int>::iterator aux = m.begin(); //Iterador para el map
+    //Métodos privados-------------------------------------------
+
+    /** @brief Modifica la frecuencia de un carácter.
+        \pre El carácter existe y tiene frecuencia.
+        \post La frecuencia del carácter ha sido modificada.
+    */
+    void modificar_frecuencias(const pair<string, int>& p);
 };
 #endif

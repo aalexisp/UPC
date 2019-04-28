@@ -22,16 +22,10 @@ void Cjt_Idiomas::anadir_modificar(){
         Idioma l(nombre, tf);
         m.insert(make_pair(nombre, l));
     }else{
-        map<string, Idioma>::iterator it;
-        it = m.find(nombre);
-        it->second.leer_tabla_frecuencias();
+        map<string, Idioma>::iterator it = m.find(nombre);
+        it->second.leer_tabla_frecuencias(); //se modifican las frec.
     }
 }
-
-void Cjt_Idiomas::eliminar_idioma(string s){
-    map<string, Idioma>::iterator it = m.find(s);
-    if (it != m.end()) m.erase(it);
-} //NO USADO 
 
 //Consultoras--------------------------------------------
 

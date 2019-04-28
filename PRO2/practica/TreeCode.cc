@@ -30,14 +30,14 @@ TreeCode::TreeCode(const TreeCode& tree){
 
 //Lectura y escritura--------------------------------------------
 
-void TreeCode::escribir_treecode(){
+void TreeCode::escribir_treecode() const{
     cout << "recorrido en preorden:" << endl;
     escribir_preorden(t);
     cout << "recorrido en inorden:" << endl;
     escribir_inorden(t);
 }
 
-void TreeCode::escribir_codigos(string s){
+void TreeCode::escribir_codigos(string s) const{
     map<string, string>::const_iterator it;
     if (s != "todos" and tm.find(s) != tm.end()){
         it = tm.find(s);
@@ -55,7 +55,7 @@ void TreeCode::escribir_codigos(string s){
 
 //Métodos privados--------------------------------------------
 
-void TreeCode::escribir_preorden(const BinTree<pair<string, int> >& b){
+void TreeCode::escribir_preorden(const BinTree<pair<string, int> >& b) const{
     if (not b.empty()){
         cout << b.value().first << ' ' << b.value().second << endl;
         escribir_preorden(b.left());
@@ -63,7 +63,7 @@ void TreeCode::escribir_preorden(const BinTree<pair<string, int> >& b){
     }
 }
 
-void TreeCode::escribir_inorden(const BinTree<pair<string, int> >& b){
+void TreeCode::escribir_inorden(const BinTree<pair<string, int> >& b) const{
     if (not b.empty()){
         escribir_inorden(b.left());
         cout << b.value().first << ' ' << b.value().second << endl;
@@ -71,7 +71,7 @@ void TreeCode::escribir_inorden(const BinTree<pair<string, int> >& b){
     }
 }
 
-bool comp(BinTree<pair<string,int> > a, BinTree<pair<string,int> > b){
+bool comp(const BinTree<pair<string,int> >& a, const BinTree<pair<string,int> >& b){
 	if (a.value().second < b.value().second) return true;
 	else if (a.value().second == b.value().second){
 		if (a.value().first < b.value().first) return true;
@@ -79,7 +79,7 @@ bool comp(BinTree<pair<string,int> > a, BinTree<pair<string,int> > b){
 	return false;
 } //Método no privado pero se usa dentro de uno
 
-pair<string,int> TreeCode::suma(pair<string,int> a, pair<string, int> b){
+pair<string,int> TreeCode::suma(const pair<string,int>& a, const pair<string, int>& b){
 	pair<string,int> p;
 	p.second = a.second + b.second;
 	if (a.first < b.first) p.first = a.first + b.first;
@@ -87,11 +87,13 @@ pair<string,int> TreeCode::suma(pair<string,int> a, pair<string, int> b){
 	return p;
 }
 
-void TreeCode::crear_nodos_base(Tabla_de_frecuencias tf){
+void TreeCode::crear_nodos_base(const Tabla_de_frecuencias& tf){
     BinTree<pair<string, int> > b;
     pair<string, int> p;
+    map<string, int>::const_iterator aux;
+    tf.cambio(aux);
     for(int i = 0; i < tf.tamano(); ++i){
-        p = tf.consultar_iesimo(i);
+        p = tf.consultar_iesimo(i, aux);
         b = BinTree<pair<string, int> > (p);
         v.push_back(b);
     }
@@ -107,6 +109,7 @@ void TreeCode::insertar(BinTree<pair<string, int> >& tree){
     }
 }
 
+
 void TreeCode::crear_TreeCode(){
 	if(v.size() == 1){
         t = v[0];
@@ -119,7 +122,7 @@ void TreeCode::crear_TreeCode(){
     }
 }
 
-void TreeCode::crear_tabla_codigos(const BinTree<pair<string, int> >& tc, pair<string, string> p, Tabla_de_frecuencias tf){
+void TreeCode::crear_tabla_codigos(const BinTree<pair<string, int> >& tc, const pair<string, string>& p, const Tabla_de_frecuencias& tf){
     if (tf.esta(p.first) and tm.size() < tf.tamano()){
         tm.insert(pair<string, string>(p.first, p.second));
     }

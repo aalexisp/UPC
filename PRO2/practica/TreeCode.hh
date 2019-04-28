@@ -77,14 +77,14 @@ public:
         \pre <em>cierto</em>.
         \post Se escribe el treecode en preorden e inorden por el canal estándar de salida.
     */
-    void escribir_treecode();
+    void escribir_treecode() const;
 
     /** @brief Operación de escritura de la tabla de codigos.
 
         \pre <em>cierto</em>.
         \post Se escribe el treecode en preorden e inorden por el canal estándar de salida.
     */
-    void escribir_codigos(string s);
+    void escribir_codigos(string s) const;
 
 private:
     //Atributos--------------------------------------------
@@ -102,7 +102,7 @@ private:
         \post Se ha escrito el treecode en preorden por el canal estándar de salida.
     */
 
-    void escribir_preorden(const BinTree<pair<string, int> >& b); //Función para escribir el treecode en preorden
+    void escribir_preorden(const BinTree<pair<string, int> >& b) const; //Función para escribir el treecode en preorden
 
 
     /** @brief Función para escribir el treecode en inorden.
@@ -110,21 +110,21 @@ private:
         \post Se ha escrito el treecode en inorden por el canal estándar de salida.
     */
 
-    void escribir_inorden(const BinTree<pair<string, int> >& b); //Función para escribir el treecode en inorden
+    void escribir_inorden(const BinTree<pair<string, int> >& b) const; //Función para escribir el treecode en inorden
 
     /** @brief Función para sumar las frecuencias de diversas tablas.
         \pre La tabla de frecuencias del p.i tiene valores.
         \post Las frecuencias de la tabla del p.i pasa a tener nuevos valores.
     */
 
-    pair<string, int> suma(pair<string,int> a, pair<string, int> b); //Función para crear el par que van el el nodo de la raiz de a y b
+    pair<string, int> suma(const pair<string,int>& a, const pair<string, int>& b); //Función para crear el par que van el el nodo de la raiz de a y b
 
     /** @brief Llena el vector de árboles (nodos base).
         \pre El vector de bintrees ha sido declarado y está vacío.
         \post El parámetro implícito pasa a contener los valores de la tabla de frecuencias.
     */
 
-    void crear_nodos_base(Tabla_de_frecuencias tf);
+    void crear_nodos_base(const Tabla_de_frecuencias& tf);
 
     /** @brief Función para insertar un bintree en el vector de bintree's
         \pre <em>cierto</em>
@@ -145,7 +145,7 @@ private:
         \post La tabla de códigos pasa a contener sus valores correspondientes.
     */
 
-    void crear_tabla_codigos(const BinTree<pair<string, int> >& tc, pair<string, string> p, Tabla_de_frecuencias tf);
+    void crear_tabla_codigos(const BinTree<pair<string, int> >& tc, const pair<string, string>& p, const Tabla_de_frecuencias& tf);
 
 };
 #endif
