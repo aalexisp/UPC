@@ -101,12 +101,6 @@ private:
     map<string, Idioma> m; //nombre del idioma y el idioma
 
     //Métodos privados--------------------------------------------
-
-    /** @brief Consulta el idioma a partir un nombre.
-        \pre El idioma existe.
-        \post Retorna el idioma con nombre s.
-     */
-
-    Idioma consultar_idioma(string s) const;
+    
 };
 #endif

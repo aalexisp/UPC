@@ -40,23 +40,18 @@ bool Cjt_Idiomas::existe_idioma(string s) const {
 //Escritura y lectura--------------------------------------------
 
 void Cjt_Idiomas::escribir_treecode(string s)const{
-    consultar_idioma(s).escribir_treecode();
+    (m.find(s)->second).escribir_treecode();
 }
 
 void Cjt_Idiomas::escribir_tabla_frecuencias(string s)const{
-    consultar_idioma(s).escribir_tabla_frecuencias();
+    (m.find(s)->second).escribir_tabla_frecuencias();
 }
 
 void Cjt_Idiomas::escribir_codigos(string s, string st)const{
-    consultar_idioma(s).escribir_codigos(st);
+    (m.find(s)->second).escribir_codigos(st);
 }
 //void Cjt_Idiomas::codifica(string s) const;
 
 //void Cjt_Idiomas::decodifica(string s) const;
 
 //Métodos privados--------------------------------------------
-
-Idioma Cjt_Idiomas::consultar_idioma(string s) const{
-    map<string, Idioma>::const_iterator it = m.find(s);
-    return it->second;
-}

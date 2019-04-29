@@ -46,10 +46,10 @@ void Idioma::escribir_tabla_frecuencias() const{
     t.escribir_tabla_frecuencias();
 }
 
-void Idioma::escribir_treecode(){
+void Idioma::escribir_treecode()const{
     tree.escribir_treecode();
 }
 
-void Idioma::escribir_codigos(string st){
+void Idioma::escribir_codigos(string st)const{
     tree.escribir_codigos (st);
 }

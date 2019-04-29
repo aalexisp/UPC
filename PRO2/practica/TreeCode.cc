@@ -117,14 +117,14 @@ void TreeCode::crear_TreeCode(){
 		pair<string, int> p = suma(v[0].value(),v[1].value());
 		BinTree<pair<string,int > > tree (p, v[0], v[1]);
 		v.erase(v.begin(),v.begin()+2);
-        insertar(tree);
+        insertar(tree); //Para insertar en el treecode el bintree resultante
 		crear_TreeCode();
     }
 }
 
 void TreeCode::crear_tabla_codigos(const BinTree<pair<string, int> >& tc, const pair<string, string>& p, const Tabla_de_frecuencias& tf){
     if (tf.esta(p.first) and tm.size() < tf.tamano()){
-        tm.insert(pair<string, string>(p.first, p.second));
+        tm.insert(make_pair(p.first, p.second));
     }
 
     pair<string,string> aux;

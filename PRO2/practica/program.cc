@@ -39,7 +39,7 @@ int main (){
     int n;
     cin >> n;
     Cjt_Idiomas c;
-
+    
     for (int i = 0; i < n; ++i){
         c.anadir_modificar(); //Si el idioma ya existía se modifica la tabla
     }

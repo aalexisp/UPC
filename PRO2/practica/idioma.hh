@@ -91,14 +91,14 @@ public:
         \post Escribe el treecode por el canal estándar de salida.
     */
 
-    void escribir_treecode();
+    void escribir_treecode()const;
 
     /** @brief Operación de escritura de los códigos del Idioma.
         \pre <em>cierto</em>.
         \post Escribe los códigos del idioma por el canar estándar de salida.
     */
 
-    void escribir_codigos(string st);
+    void escribir_codigos(string st)const;
 
 private:
         //Atributos

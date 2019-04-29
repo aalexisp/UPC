@@ -13,7 +13,6 @@ Tabla_de_frecuencias::Tabla_de_frecuencias(const Tabla_de_frecuencias& tf){
 }
 
 //Modificadoras--------------------------------------------
-//SIN MODIFICADORAS PÚBLICAS
 
 void Tabla_de_frecuencias::cambio(map<string, int>::const_iterator& aux)const{
     aux = m.begin();
