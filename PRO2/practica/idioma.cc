@@ -24,9 +24,20 @@ Idioma::Idioma(const Idioma& l){
 
 //Modificadoras--------------------------------------------
 
-//Sin modificadoras
+void Idioma::modificar_treecode(){
+    tree = TreeCode(t);
+}
 
 //Consultoras--------------------------------------------
+
+void Idioma::codifica(string s){
+    map<string, string>::const_iterator it;
+    int i = 0;
+    string res = "";
+    string out = tree.codifica(s, res, it, i);
+    if (i < s.length() or out == s) cout << "El texto no pertenece al idioma; primer caracter que falla: " << out << endl;
+    else cout << res << endl;
+}
 
 string Idioma::consultar_nombre() const{
     return nombre;

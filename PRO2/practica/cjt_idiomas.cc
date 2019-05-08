@@ -13,9 +13,7 @@ Cjt_Idiomas::Cjt_Idiomas(const Cjt_Idiomas& c){
 
 //Modificadoras--------------------------------------------
 
-void Cjt_Idiomas::anadir_modificar(){
-    string nombre;
-    cin >> nombre;
+void Cjt_Idiomas::anadir_modificar(string nombre){
     if (m.find(nombre) == m.end()){ //si el idioma no está
         Tabla_de_frecuencias tf;
         tf.leer_tabla_frecuencias();
@@ -24,6 +22,7 @@ void Cjt_Idiomas::anadir_modificar(){
     }else{
         map<string, Idioma>::iterator it = m.find(nombre);
         it->second.leer_tabla_frecuencias(); //se modifican las frec.
+        it->second.modificar_treecode();
     }
 }
 
@@ -38,6 +37,10 @@ bool Cjt_Idiomas::existe_idioma(string s) const {
 }
 
 //Escritura y lectura--------------------------------------------
+
+void Cjt_Idiomas::codifica(string s, string code){
+    (m.find(s)->second).codifica(code);
+}
 
 void Cjt_Idiomas::escribir_treecode(string s)const{
     (m.find(s)->second).escribir_treecode();

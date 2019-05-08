@@ -52,7 +52,7 @@ public:
 
     //Modificadoras--------------------------------------------
 
-//MODIFICADORAS NO NECESARIAS POR EL MOMENTO
+//Sin modificadoras públicas
 
     //Consultoras--------------------------------------------
 
@@ -61,7 +61,7 @@ public:
         \post Se retorna el caráter codificado en 0's y 1's.
     */
 
-    string codifica(string s);
+    string codifica(string s, string& res, map<string, string>::const_iterator& it, int& i);
 
     /** @brief Función para decodificar los carácteres.
         \pre El carácter existe y es decodificable.

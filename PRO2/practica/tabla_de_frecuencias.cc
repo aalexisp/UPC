@@ -13,15 +13,15 @@ Tabla_de_frecuencias::Tabla_de_frecuencias(const Tabla_de_frecuencias& tf){
 }
 
 //Modificadoras--------------------------------------------
-
-void Tabla_de_frecuencias::cambio(map<string, int>::const_iterator& aux)const{
-    aux = m.begin();
-}
-
+//Sin Modificadoras públicas
 //Consultoras--------------------------------------------
 
 int Tabla_de_frecuencias::tamano() const{
     return m.size();
+}
+
+void Tabla_de_frecuencias::principio(map<string, int>::const_iterator& aux)const{
+    aux = m.begin();
 }
 
 /*

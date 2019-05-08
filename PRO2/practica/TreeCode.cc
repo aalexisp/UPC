@@ -20,12 +20,49 @@ TreeCode::TreeCode(const TreeCode& tree){
 }
 
 //Modificadoras--------------------------------------------
-
-//No necesarias
-
+//Sin modificadoras públicas
 //Consultoras--------------------------------------------
 
-//string TreeCode::codifica(string s);
+//entrada gafa_gafe_figa_Àfegia
+/*
+Codigos de idioma_medio:
+_ 1111
+a 010
+e 00
+f 1110
+g 10
+i 110
+À 0110
+Ç 0111
+*/
+
+//salida 10010111001011111001011100011111110110100101111011011100010110010
+
+void next_symbol(const string& s, int& i, string& out){
+/* Pre: i=I<s.length() es la primera posicion de un caracter de s */
+/* Post: out es el caracter que comienza en s[I]; si out es normal
+retorna true y i=I+1, si es especial retorna false y i=I+2 */
+    if (s[i]>=0) {
+        out = string(1, s[i]); ++i;
+    }
+    else {
+        out = string(s, i, 2); i+=2;
+    }
+}
+
+string TreeCode::codifica(string s, string& res, map<string, string>::const_iterator& it, int& i){
+    string aux;
+    next_symbol(s, i, aux);
+    it = tm.find(aux);
+    if (it == tm.end()) return aux;
+    else if (i <= s.length()){
+        res += it->second;
+        if (i == s.length()) return res;
+    }
+    res = codifica(s, res, it, i);
+    return res;
+}
+
 //string TreeCode::decodifica(string s);
 
 //Lectura y escritura--------------------------------------------
@@ -91,7 +128,7 @@ void TreeCode::crear_nodos_base(const Tabla_de_frecuencias& tf){
     BinTree<pair<string, int> > b;
     pair<string, int> p;
     map<string, int>::const_iterator aux;
-    tf.cambio(aux);
+    tf.principio(aux);
     for(int i = 0; i < tf.tamano(); ++i){
         p = tf.consultar_iesimo(i, aux);
         b = BinTree<pair<string, int> > (p);

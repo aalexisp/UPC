@@ -42,7 +42,7 @@ public:
         \post El idioma l ha sido añadido al conjunto.
      */
 
-    void anadir_modificar();
+    void anadir_modificar(string nombre);
 
     //Consultoras--------------------------------------------
 
@@ -67,7 +67,7 @@ public:
         \post Se ha escrito el texto codificado por en canal estándar de salida.
      */
 
-    void codifica(string s) const;
+    void codifica(string s, string code);
 
     /** @brief Operación de escritura del código decodificado.
         \pre <em>cierto</em>.
@@ -101,6 +101,6 @@ private:
     map<string, Idioma> m; //nombre del idioma y el idioma
 
     //Métodos privados--------------------------------------------
-    
+
 };
 #endif

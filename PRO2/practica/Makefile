@@ -16,4 +16,6 @@ practica.tar: practica.tar idioma.hh cjt_idiomas.hh tabla_de_frecuencias.hh Tree
 	tar -cvf practica.tar idioma.hh cjt_idiomas.hh tabla_de_frecuencias.hh TreeCode.hh idioma.cc cjt_idiomas.cc TreeCode.cc tabla_de_frecuencias.cc program.cc Makefile
 Clean:
 	rm -f *.o
+UltraClean:
+	rm -f *.o
 	rm -f *.exe

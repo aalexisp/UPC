@@ -1,6 +1,6 @@
 2
 
-idioma_mini
+idioma_corto
 3
 a 4
 b 7
@@ -8,48 +8,96 @@ _ 5
 
 idioma_medio
 8
-e 9
+Ç 2
+e 7
 f 3
 g 8
-_ 6
-Ç 1
-Ñ 2
+_ 4
 a 4
 i 6
+À 2
 
-tabla_frec idioma_mini
+tabla_frec idioma_corto
 
 tabla_frec idioma_medio
 
-treecode idioma_mini
+treecode idioma_corto
 
 treecode idioma_medio
 
-codigos idioma_mini todos
-
-codigos idioma_mini b
-
-codigos idioma_medio Ñ
+codigos idioma_corto todos
 
 codigos idioma_medio todos
 
-tabla_frec idioma_mini
+codigos idioma_corto a
 
-treecode idioma_mini
+codigos idioma_corto k
 
-codigos idioma_mini A
+codigos idioma_medio À
 
-codigos idioma_mini todos
+codifica idioma_medio
+efghifhgg_xxx_bbb_c
 
-tabla_frec idioma_maxi
+codifica idioma_medio
+gafa_gafe_figa_Àfegia
+
+decodifica idioma_medio
+0110011101001001011111
+
+decodifica idioma_medio
+11101101111111011011110110110111111100100111
+
+decodifica idioma_corto
+1
+
+anadir/modificar idioma_corto
+3
+a 4
+b 3
+d 5
+
+tabla_frec idioma_corto
+
+treecode idioma_corto
+
+codigos idioma_corto todos
 
 
-treecode idioma_maxi
+tabla_frec basic2-1
 
-codigos idioma_maxi todos
+treecode  basic2-1
 
-codigos idioma_maxi 1
+codigos  basic2-1 todos
 
+codigos  basic2-1 5
 
+codifica basic2-1
+abddba
 
+decodifica basic2-1
+1101010011
+
+anadir/modificar idioma_cortisimo
+3
+ç 2
+_ 10
+à 5
+
+tabla_frec idioma_cortisimo
+
+treecode idioma_cortisimo
+
+codigos idioma_cortisimo todos
+
+codifica idioma_cortisimo
+ççç_ççà_ç
+
+codifica idioma_cortisimo
+x
+
+decodifica idioma_cortisimo
+101010
+
+decodifica idioma_cortisimo
+1001
 fin

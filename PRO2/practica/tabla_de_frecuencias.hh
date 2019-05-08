@@ -43,9 +43,7 @@ public:
     Tabla_de_frecuencias(const Tabla_de_frecuencias& t);
 
     //Modificadoras--------------------------------------------
-
-    void cambio(map<string, int>::const_iterator& aux)const;
-
+//Sin Modificadoras públicas
     //Consultoras--------------------------------------------
 
     /** @brief Consulta el tamaño de la tabla de frecuencias.
@@ -54,6 +52,13 @@ public:
     */
 
     int tamano() const;
+
+    /** @brief Funcíon para asignar a un iterador la posición inicial de un diccionario.
+        \pre El diccionario existe.
+        \post aux pasa a apuntar a m.begin().
+    */
+
+    void principio(map<string, int>::const_iterator& aux)const;
 
     /** @brief Consulta el par string, int (caràcter, frecuencia).
         \pre El diccionario del p.i no está vacío, si 0 <= i <= m.size().
@@ -70,7 +75,6 @@ public:
     bool esta (string s) const;
 
     //Lectura y escritura--------------------------------------------
-
 
      /** @brief Llena la tabla de frecuencias con pares string, int (carácter, frecuencia).
         \pre La tabla de frecuencias ha sido declarada y está vacía.
@@ -99,5 +103,6 @@ private:
         \post La frecuencia del carácter ha sido modificada.
     */
     void modificar_frecuencias(const pair<string, int>& p);
+
 };
 #endif

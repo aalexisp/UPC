@@ -38,7 +38,7 @@ public:
 
     //Modificadoras--------------------------------------------
 
-//MODIFICADORAS NO NECESARIAS POR EL MOMENTO
+    void modificar_treecode();
 
     //Consultoras--------------------------------------------
 
@@ -61,7 +61,7 @@ public:
         \post Se retorna el caráter codificado en 0's y 1's.
     */
 
-    string codifica(string s) const;
+    void codifica(string s);
 
     /** @brief Función para decodificar los carácteres.
         \pre El carácter existe y es decodificable.

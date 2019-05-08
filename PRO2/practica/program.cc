@@ -39,20 +39,23 @@ int main (){
     int n;
     cin >> n;
     Cjt_Idiomas c;
-    
+
     for (int i = 0; i < n; ++i){
-        c.anadir_modificar(); //Si el idioma ya existía se modifica la tabla
+        string nombre;
+        cin >> nombre;
+        c.anadir_modificar(nombre); //Si el idioma ya existía se modifica la tabla
     }
 
     string op; //nombre de la opción
     string s; //nombre del idioma
     string st; //para los codigos
+    string code; //para codificar o decodificar
     //bool primer = true;
     while (cin >> op and op != "fin"){
         cin >> s; //leemos el nombre del idioma
-        /*if (primer){
-            primer = false;
-        } else cout << endl;*/
+        if (op == "anadir/modificar"){
+            c.anadir_modificar(s);
+        }
         if (c.existe_idioma(s)){
             if (op == "tabla_frec"){
                 //Mostrar la tabla de frecuencia del idioma s
@@ -70,6 +73,12 @@ int main (){
                 if (st == "todos") cout << "Codigos de " << s << ':' << endl;
                 else cout << "Codigo de " << st << " en " << s << ":" << endl;
                 c.escribir_codigos(s, st);
+                cout << endl;
+            } else if (op == "codifica"){
+                cin >> code;
+                cout << "Codifica en " << s << " el texto:" << endl;
+                cout << code << endl;
+                c.codifica(s, code);
                 cout << endl;
             }
         } else {
@@ -92,6 +101,11 @@ int main (){
                     cout << "El idioma no existe o el caracter no esta en el idioma" << endl;
                     cout << endl;
                 }
+            } else if (op == "codifica"){
+                cin >> code;
+                cout << "Codifica en " << s << " el texto:" << endl;
+                cout << s << endl;
+                cout << "El idioma no existe" << endl;
             }
         }
     }
