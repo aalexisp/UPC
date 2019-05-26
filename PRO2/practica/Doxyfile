@@ -4,8 +4,8 @@
 # Project related configuration options
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = utf-8
-PROJECT_NAME           = "Práctica PRO2 - 'Codificar y decoficiar Idiomas'."
-PROJECT_NUMBER         = "version 3 22-abr-2019"
+PROJECT_NAME           = "Práctica PRO2 - 'Codificar y decodificar Idiomas'."
+PROJECT_NUMBER         = "version 4.0 5-mayo-2019"
 OUTPUT_DIRECTORY       = "./DOC"
 CREATE_SUBDIRS         = NO
 OUTPUT_LANGUAGE        = Spanish
@@ -51,7 +51,7 @@ TYPEDEF_HIDES_STRUCT   = NO
 # Build related configuration options
 #---------------------------------------------------------------------------
 EXTRACT_ALL            = YES
-EXTRACT_PRIVATE        = NO
+EXTRACT_PRIVATE        = YES # para que los elementos privados aparezcan en la documentacion
 EXTRACT_STATIC         = NO
 EXTRACT_LOCAL_CLASSES  = YES
 EXTRACT_LOCAL_METHODS  = NO
@@ -73,13 +73,13 @@ GENERATE_TODOLIST      = NO
 GENERATE_TESTLIST      = NO
 GENERATE_BUGLIST       = NO
 GENERATE_DEPRECATEDLIST= NO
-ENABLED_SECTIONS       =
+ENABLED_SECTIONS       = 
 MAX_INITIALIZER_LINES  = 30
 SHOW_USED_FILES        = YES
 SHOW_DIRECTORIES       = NO
 SHOW_FILES             = YES
 SHOW_NAMESPACES        = NO
-FILE_VERSION_FILTER    =
+FILE_VERSION_FILTER    = 
 #---------------------------------------------------------------------------
 # configuration options related to warning and progress messages
 #---------------------------------------------------------------------------
@@ -94,23 +94,20 @@ WARN_LOGFILE           =
 # configuration options related to the input files
 #---------------------------------------------------------------------------
 INPUT                  = "."
-INPUT_ENCODING         = utf-8
-FILE_PATTERNS          = *.hpp \ *.hh \
-                         main*.cpp \ main*.cc \
-                         pro2*.cpp \ pro2*.cc \
-			 program.cpp \ program.cc \
-                         principal*.cpp \ principal*.cc
+INPUT_ENCODING         = UTF-8
+FILE_PATTERNS          = *.hh \ 
+                         *.cc   # para que todos los ficheros c++ intervengan en la documentacion
 RECURSIVE              = NO
 EXCLUDE                = *~ \ BinTree.hh
 EXCLUDE_SYMLINKS       = NO
 EXCLUDE_PATTERNS       = *~
-EXCLUDE_SYMBOLS        =
-EXAMPLE_PATH           =
+EXCLUDE_SYMBOLS        = 
+EXAMPLE_PATH           = 
 EXAMPLE_PATTERNS       = *
 EXAMPLE_RECURSIVE      = NO
-IMAGE_PATH             =
-INPUT_FILTER           =
-FILTER_PATTERNS        =
+IMAGE_PATH             = 
+INPUT_FILTER           = 
+FILTER_PATTERNS        = 
 FILTER_SOURCE_FILES    = NO
 #---------------------------------------------------------------------------
 # configuration options related to source browsing
