@@ -1,0 +1,201 @@
+Tabla de frecuencias de idioma_corto:
+_ 5
+a 4
+b 7
+
+Tabla de frecuencias de idioma_medio:
+_ 4
+a 4
+e 7
+f 3
+g 8
+i 6
+À 2
+Ç 2
+
+Treecode de idioma_corto:
+recorrido en preorden:
+_ab 16
+b 7
+_a 9
+a 4
+_ 5
+recorrido en inorden:
+b 7
+_ab 16
+a 4
+_a 9
+_ 5
+
+Treecode de idioma_medio:
+recorrido en preorden:
+_figaÀÇe 36
+aÀÇe 15
+e 7
+aÀÇ 8
+a 4
+ÀÇ 4
+À 2
+Ç 2
+_fig 21
+g 8
+_fi 13
+i 6
+_f 7
+f 3
+_ 4
+recorrido en inorden:
+e 7
+aÀÇe 15
+a 4
+aÀÇ 8
+À 2
+ÀÇ 4
+Ç 2
+_figaÀÇe 36
+g 8
+_fig 21
+i 6
+_fi 13
+f 3
+_f 7
+_ 4
+
+Codigos de idioma_corto:
+_ 11
+a 10
+b 0
+
+Codigos de idioma_medio:
+_ 1111
+a 010
+e 00
+f 1110
+g 10
+i 110
+À 0110
+Ç 0111
+
+Codigo de a en idioma_corto:
+a 10
+
+Codigo de k en idioma_corto:
+El idioma no existe o el caracter no esta en el idioma
+
+Codigo de À en idioma_medio:
+À 0110
+
+Codifica en idioma_medio el texto:
+efghifhgg_xxx_bbb_c
+El texto no pertenece al idioma; primer caracter que falla: h
+
+Codifica en idioma_medio el texto:
+gafa_gafe_figa_Àfegia
+10010111001011111001011100011111110110100101111011011100010110010
+
+Decodifica en idioma_medio el texto:
+0110011101001001011111
+El texto no procede de una codificacion del idioma; ultima posicion del codigo correspondiente al ultimo caracter que se podria decodificar: 21
+
+Decodifica en idioma_medio el texto:
+11101101111111011011110110110111111100100111
+fi_fi_Ài_faÇ
+
+Decodifica en idioma_corto el texto:
+1
+El texto no procede de una codificacion del idioma; ultima posicion del codigo correspondiente al ultimo caracter que se podria decodificar: 0
+
+Modificado idioma_corto
+
+Tabla de frecuencias de idioma_corto:
+_ 5
+a 8
+b 10
+d 5
+
+Treecode de idioma_corto:
+recorrido en preorden:
+_dab 28
+b 10
+_da 18
+a 8
+_d 10
+_ 5
+d 5
+recorrido en inorden:
+b 10
+_dab 28
+a 8
+_da 18
+_ 5
+_d 10
+d 5
+
+Codigos de idioma_corto:
+_ 110
+a 10
+b 0
+d 111
+
+Tabla de frecuencias de basic2-1:
+El idioma no existe
+
+Treecode de basic2-1:
+El idioma no existe
+
+Codigos de basic2-1:
+El idioma no existe
+
+Codigo de 5 en basic2-1:
+El idioma no existe o el caracter no esta en el idioma
+
+Codifica en basic2-1 el texto:
+abddba
+El idioma no existe
+
+Decodifica en basic2-1 el texto:
+1101010011
+El idioma no existe
+
+Anadido idioma_cortisimo
+
+Tabla de frecuencias de idioma_cortisimo:
+_ 10
+à 5
+ç 2
+
+Treecode de idioma_cortisimo:
+recorrido en preorden:
+_àç 17
+àç 7
+ç 2
+à 5
+_ 10
+recorrido en inorden:
+ç 2
+àç 7
+à 5
+_àç 17
+_ 10
+
+Codigos de idioma_cortisimo:
+_ 1
+à 01
+ç 00
+
+Codifica en idioma_cortisimo el texto:
+ççç_ççà_ç
+0000001000001100
+
+Codifica en idioma_cortisimo el texto:
+x
+El texto no pertenece al idioma; primer caracter que falla: x
+
+Decodifica en idioma_cortisimo el texto:
+101010
+El texto no procede de una codificacion del idioma; ultima posicion del codigo correspondiente al ultimo caracter que se podria decodificar: 5
+
+Decodifica en idioma_cortisimo el texto:
+1001
+_ç_
+
