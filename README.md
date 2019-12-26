@@ -8,6 +8,9 @@ My UPC university repository
 
 ## [PRO2](https://github.com/aalexisp/UPC/tree/master/PRO2)
 
+# EDA FILES
+
+## [EDA](https://github.com/aalexisp/UPC/tree/master/PRO2)
 
 ### Author
 
