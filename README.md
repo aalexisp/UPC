@@ -10,7 +10,7 @@ My UPC university repository
 
 # EDA FILES
 
-## [EDA](https://github.com/aalexisp/UPC/tree/master/PRO2)
+## [EDA](https://github.com/aalexisp/UPC/tree/master/EDA/GAME)
 
 ### Author
 
