@@ -1,7 +1,7 @@
-# UPC
+# UPC - FIB
 
 ```
-My UPC university repository
+My UPC- FIB repository
 ```
 
 # PRO2 FILES
