@@ -12,6 +12,10 @@ My UPC university repository
 
 ## [EDA](https://github.com/aalexisp/UPC/tree/master/EDA)
 
+# IDI FILES
+
+## [IDI](https://github.com/aalexisp/UPC/tree/master/IDI)
+
 ### Author
 
 * **Alexis** - *Initial work* - [aalexisp](https://github.com/aalexisp)
