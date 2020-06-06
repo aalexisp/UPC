@@ -43,5 +43,5 @@ void NouGLWidget::paintGL() {
 
 
 <p align="center">
-	<img src="https://github.com/aalexisp/UPC/blob/master/IDI/images/image.png" width=60%>
+	<img src="https://github.com/aalexisp/UPC/blob/master/IDI/images/image0.png" width=60%>
 </p>
