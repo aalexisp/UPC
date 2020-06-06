@@ -50,6 +50,11 @@ void NouGLWidget::iniEscena ()
   
 }
 ```
+Para calcular el radio de la escena debemos hacer pitágoras.
+
+<p align="center">
+	<img src="https://github.com/aalexisp/UPC/blob/master/IDI/images/image4.jpeg" width=60%>
+</p>
 
 ### viewTransform()
 
