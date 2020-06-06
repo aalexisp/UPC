@@ -37,6 +37,7 @@ void NouGLWidget::iniCamera ()
 
 ### iniEscena()
 
+ - Antes de nada hay que tener en cuenta que al principio de la función habría que añadir los creaBuffers correspondientes.
  - Dado que tenemos que inicializar la escena y que usamos Euler solo ponemos el centro de la escena y el radio.
  - Lo primero de todo consiste en inicializar el valor del centro de la escena. Es decir, hacia donde va a mirar la cámara, el VRP.
  - La segunda cosa a tener en cuenta es el radio de la escena ya que lo usaremos posteriormente para el zNear y zFar en la projectTransform.
