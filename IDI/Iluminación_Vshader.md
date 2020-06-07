@@ -11,6 +11,11 @@ A             |  B
 :-------------------------:|:-------------------------:
 ![](https://github.com/aalexisp/UPC/blob/master/IDI/images/image5.png)  |  ![](https://github.com/aalexisp/UPC/blob/master/IDI/images/image7.png)
 
+<p align="center">
+	<img src="https://github.com/aalexisp/UPC/blob/master/IDI/images/image10.png" width=60%>
+</p>
+
+
 Tendremos en cuenta que hacemos la aplicación de la iluminación en MyGLWidget y luego en NouGLWidget.
  - Lo primero a tener en cuenta es si las variables **posFocus, colorFocus y llumAmbient** la pasaremos como uniform o no.
  - En nuestro caso el único **uniform será posFocus** y las otras dos estarán inicializadas en el **vertex shader**.
