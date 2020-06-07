@@ -174,3 +174,8 @@ vec3 Phong (vec3 NormSCO, vec3 L, vec4 vertSCO)
 <p align="center">
 	<img src="https://github.com/aalexisp/UPC/blob/master/IDI/images/image6.png" width=60%>
 </p>
+
+<p align="center">
+	<img src="https://github.com/aalexisp/UPC/blob/master/IDI/images/image11.png" width=60%>
+</p>
+
