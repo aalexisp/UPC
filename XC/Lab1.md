@@ -9,7 +9,9 @@
         > ifcconfig e0 192.168.60.1 netmask 255.255.255.0 broadcast 192.168.60.255
         
         > ifconfig e0 10.2.0.2 netmask 255.255.255.0
-        
+	
+    - **ifconfig** *up/down*
 <p align="center">
 	<img src="https://github.com/aalexisp/UPC/blob/master/XC/images/image1.PNG" width=60%>
 </p>
+  - dsa
