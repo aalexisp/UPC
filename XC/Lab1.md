@@ -45,7 +45,7 @@
       
      - **traceroute** *dirección_ip*
      
-     	        > traceroute 192.168.2.10
+     		> traceroute 192.168.2.10
   
   - **tcpdump**: 
   Permite caprurar información sobre los paquetes que nos envian o se envian desde una interfície.
