@@ -29,5 +29,10 @@
 	
  En este ejemplo suponemos que este comando se aplica en PC1. En la tabla de encaminamiento estariamos diciendo que mediante la interfície de nuestro PC que está conectada con 10.2.0.2 (que probablemente sea la ip de la interfície de un router u otro PC) estaríamos accediendo la ip (network) 10.3.0.0 que es la ip asignada a otra interfície de otro PC conectado necesariamente al router o PC que hace de intermediario o host.
  
+   - **ping**: 
+   Comando para enviar paquetes hacia un dispositivo (para comprobar conectividad usualmente).
+   
      - **ping** *dirección_ip*
+    	
+		> ping 192.168.2.10
  
