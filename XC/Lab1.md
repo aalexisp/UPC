@@ -44,12 +44,12 @@
     Comando que permite saber por qué interfícies pasan los datos al enviar paquetes.
       
      - **traceroute** *dirección_ip*
-     
      		> traceroute 192.168.2.10
   
   - **tcpdump**: 
   Permite caprurar información sobre los paquetes que nos envian o se envian desde una interfície.
   
      - **tcpdump** **-n** **-i** *interfície*
+     
   		> tcpdump -ni e0
   
