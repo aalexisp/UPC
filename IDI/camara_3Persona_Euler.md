@@ -30,40 +30,17 @@ Los métodos que debemos modificar necesariamente son:
   
   }
 ```
-Para calcular el radio de la escena debemos hacer pitágoras.
+Para calcular el radio de la escena hay dos posibilidades.
+
+### Haciendo pitágoras:
 
 <p align="center">
 	<img src="https://github.com/aalexisp/UPC/blob/master/IDI/images/image4.jpeg" width=60%>
 </p>
 
+### Buscando los puntos máximo y mínimo de mi escena
 
-### iniCamera()
-
-  - Este método sirve para inicializar la cámara. Al llevar angulos de Euler solo se inicializan estos.
-  - Lo primero que debemos hacer es poner los angulos de rotación **psi (Ψ)** y **theta (Θ)** correspondientes.
-  - Si no nos dan ningún valor se inicializan en 0 tal que **angleX = angleY = 0;**
-  - En esta función es donde inicializaremos las variables **zNear, zFar, FOV** de primeras.
-  - Finalmente se llaman a los métodos **projectTransform();** y **viewTransform();**
-
-```c++
-void NouGLWidget::iniCamera ()
-{
-
-  rav = 1.0; //Necesario para el RESIZE()
-  angleY = 0;
-  angleX = M_PI/6.0;
-  
-  fov = float(M_PI/3.0);
-  zn = radiEsc;
-  zf = 3*radiEsc;
-
-  projectTransform();
-  viewTransform();
-
-}
-```
-
- - Hay que **destacar** una cosa muy importante. Y es que no siempre nos dirán el tamaño de la escena. En ese caso hay que mirar las posiciones de los vértices del suelo, tierra o lo que sea más externo de la escena. Esto se mira en el **carregaBuffers()** del respectivo objecto.
+- Hay que **destacar** una cosa muy importante. Y es que no siempre nos dirán el tamaño de la escena. En ese caso hay que mirar las posiciones de los vértices del suelo, tierra o lo que sea más externo de la escena. Esto se mira en el **carregaBuffers()** del respectivo objecto.
  
  ```c++
   void MyGLWidget::creaBuffersTerraIParet ()
@@ -94,25 +71,46 @@ void NouGLWidget::iniCamera ()
  ```c++
      glm::vec3 Pmin, Pmax;
  ```
- - Por último para calcular el radio de la escena hay que calcular la distáncia entre estos dos puntos y dividirla entre 2.
+ - Por último para calcular el radio de la escena hay que calcular la distáncia entre estos dos puntos y dividirla entre 2
+ en la función **iniEscena()**.
 
 ```c++
-  void MyGLWidget::iniCamera ()
+  void NouGLWidget::iniEscena ()
   {
-    angleY = angleX = 0.0;
-    ra = 1.0;
-    fov = float(M_PI/3.0);
-  
+
+    centreEsc = glm::vec3 (4, 2, 4);
+    
     Pmin = glm::vec3(-2.0, -1.0, -2.0);
     Pmax = glm::vec3(2.0, 1.0, 2.0);
     radiEsc = distance(Pmin, Pmax)/2.0;
-    zn = radiEsc;
-    zf = 3*radiEsc;
-    
-    projectTransform ();
-    viewTransform ();
-}
+  
+  }
+```
 
+### iniCamera()
+
+  - Este método sirve para inicializar la cámara. Al llevar angulos de Euler solo se inicializan estos.
+  - Lo primero que debemos hacer es poner los angulos de rotación **psi (Ψ)** y **theta (Θ)** correspondientes.
+  - Si no nos dan ningún valor se inicializan en 0 tal que **angleX = angleY = 0;**
+  - En esta función es donde inicializaremos las variables **zNear, zFar, FOV** de primeras.
+  - Finalmente se llaman a los métodos **projectTransform();** y **viewTransform();**
+
+```c++
+void NouGLWidget::iniCamera ()
+{
+
+  rav = 1.0; //Necesario para el RESIZE()
+  angleY = 0;
+  angleX = M_PI/6.0;
+  
+  fov = float(M_PI/3.0);
+  zn = radiEsc;
+  zf = 3*radiEsc;
+
+  projectTransform();
+  viewTransform();
+
+}
 ```
 
 ### viewTransform()
