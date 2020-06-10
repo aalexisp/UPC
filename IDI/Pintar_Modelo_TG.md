@@ -8,7 +8,8 @@ Para poder modificar un modelo, en este caso un Patricio hay que tener una serie
  - La función rotate funciona tal que:
     - "angulo" es un float que indica el angulo con el que vamos a rotar el modelo.
     - el **glm::vec3(0.0, 1.0, 0.0)** indica sobre que eje queremos rotar el patricio. En este caso el patricio rota sobre si mismo porque el eje que pusimos es el Y.
- - La función scale escala el patricio según un vec3. En este caso queremos tener un patricio de altura 2 y nos pasan un float que pondremos multiplicado por la altura que quremos en un vec3.
+ - La función scale escala el patricio según un vec3. En este caso queremos tener un patricio de altura 2 y nos pasan un float que pondremos multiplicado por la altura que queremos en un vec3. Cabe destacar que este valor **escalaPat** es
+ **1.0/(maxy - miny)** por esa razón podemos afirmar que escalaremos según la altura que queramos. Remarcar que si la altura del patricio no fuese por ejemplo 1.0 y no tuvieramos el valor de escala inicializado como he dicho, si lo escalamos en 2.0 estariamos haciendo mal el escalado y la altura no sería 2 ya que lo que estarias haciendo es mutiplicar todas las componentes por 2.0.
  - La función translate posiciona el patricio según el vec3 pos.
  - Finalmente hay que pasarle al localizador transLoc la matriz de transformaciones geométricas que acabamos de hacer con **glUniformMatrix4fv(nombreLoc, 1, GL_FALSE, &TG[0][0]).**
 
