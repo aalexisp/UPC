@@ -14,11 +14,35 @@ Los métodos que debemos modificar necesariamente son:
   void projectTransform ();
 ```
 
+
+### iniEscena()
+
+ - Antes de nada hay que tener en cuenta que al principio de la función habría que añadir los creaBuffers correspondientes.
+ - Dado que tenemos que inicializar la escena y que usamos Euler solo ponemos el centro de la escena y el radio.
+ - Lo primero de todo consiste en inicializar el valor del centro de la escena. Es decir, hacia donde va a mirar la cámara, el VRP.
+
+```c++
+  void NouGLWidget::iniEscena ()
+  {
+
+    centreEsc = glm::vec3 (4, 2, 4);
+    radiEsc = 6;
+  
+  }
+```
+Para calcular el radio de la escena debemos hacer pitágoras.
+
+<p align="center">
+	<img src="https://github.com/aalexisp/UPC/blob/master/IDI/images/image4.jpeg" width=60%>
+</p>
+
+
 ### iniCamera()
 
   - Este método sirve para inicializar la cámara. Al llevar angulos de Euler solo se inicializan estos.
   - Lo primero que debemos hacer es poner los angulos de rotación **psi (Ψ)** y **theta (Θ)** correspondientes.
   - Si no nos dan ningún valor se inicializan en 0 tal que **angleX = angleY = 0;**
+  - En esta función es donde inicializaremos las variables **zNear, zFar, FOV** de primeras.
   - Finalmente se llaman a los métodos **projectTransform();** y **viewTransform();**
 
 ```c++
@@ -28,6 +52,10 @@ void NouGLWidget::iniCamera ()
   rav = 1.0; //Necesario para el RESIZE()
   angleY = 0;
   angleX = M_PI/6.0;
+  
+  fov = float(M_PI/3.0);
+  zn = radiEsc;
+  zf = 3*radiEsc;
 
   projectTransform();
   viewTransform();
@@ -35,27 +63,57 @@ void NouGLWidget::iniCamera ()
 }
 ```
 
-### iniEscena()
-
- - Antes de nada hay que tener en cuenta que al principio de la función habría que añadir los creaBuffers correspondientes.
- - Dado que tenemos que inicializar la escena y que usamos Euler solo ponemos el centro de la escena y el radio.
- - Lo primero de todo consiste en inicializar el valor del centro de la escena. Es decir, hacia donde va a mirar la cámara, el VRP.
- - La segunda cosa a tener en cuenta es el radio de la escena ya que lo usaremos posteriormente para el zNear y zFar en la projectTransform.
+ - Hay que **destacar** una cosa muy importante. Y es que no siempre nos dirán el tamaño de la escena. En ese caso hay que mirar las posiciones de los vértices del suelo, tierra o lo que sea más externo de la escena. Esto se mira en el **carregaBuffers()** del respectivo objecto.
+ 
+ ```c++
+  void MyGLWidget::creaBuffersTerraIParet ()
+  {
+    // VBO amb la posició dels vèrtexs
+    glm::vec3 posterra[12] = {
+          glm::vec3(-2.0, -1.0, 2.0),
+          glm::vec3(2.0, -1.0, 2.0),
+          glm::vec3(-2.0, -1.0, -2.0), // esta es la posición mínima
+          glm::vec3(-2.0, -1.0, -2.0),
+          glm::vec3(2.0, -1.0, 2.0),
+          glm::vec3(2.0, -1.0, -2.0),
+          glm::vec3(-2.0, -1.0, -2.0),
+          glm::vec3(2.0, -1.0, -2.0),
+          glm::vec3(-2.0, 1.0, -2.0),
+          glm::vec3(-2.0, 1.0, -2.0),
+          glm::vec3(2.0, -1.0, -2.0),
+          glm::vec3(2.0, 1.0, -2.0)
+	  
+	  //La posición máxima de la escena no es un vértice pq no se pinta, es un vértice imaginario.
+	  //Cuando hemos analizado esto bien y sabemos las medidas de nuestra escena podemos averiguar el punto máximo.
+    };
+ // ...
+  }
+ ```
+ - Una vez hemos encontrado estos valores de **Pmin** (punto mínimo de la escena) y **Pmax** (punto máximo de la escena).
+ Es nececsario declarar estos dos valores como **glm::vec3 Pmin, Pmax;** en **MyGLWidget.h**:
+ ```c++
+     glm::vec3 Pmin, Pmax;
+ ```
+ - Por último para calcular el radio de la escena hay que calcular la distáncia entre estos dos puntos y dividirla entre 2.
 
 ```c++
-void NouGLWidget::iniEscena ()
-{
-
-  centreEsc = glm::vec3 (4, 2, 4);
-  radiEsc = 6;
+  void MyGLWidget::iniCamera ()
+  {
+    angleY = angleX = 0.0;
+    ra = 1.0;
+    fov = float(M_PI/3.0);
   
+    Pmin = glm::vec3(-2.0, -1.0, -2.0);
+    Pmax = glm::vec3(2.0, 1.0, 2.0);
+    radiEsc = distance(Pmin, Pmax)/2.0;
+    zn = radiEsc;
+    zf = 3*radiEsc;
+    
+    projectTransform ();
+    viewTransform ();
 }
-```
-Para calcular el radio de la escena debemos hacer pitágoras.
 
-<p align="center">
-	<img src="https://github.com/aalexisp/UPC/blob/master/IDI/images/image4.jpeg" width=60%>
-</p>
+```
 
 ### viewTransform()
 
