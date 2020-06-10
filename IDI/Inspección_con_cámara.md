@@ -3,6 +3,15 @@
  La idea principal acerca de la inspección de la escena con la rotación de la cámara se hace con angulos de EULER.
  - Primero se crea una cámara en tercera persona con los ángulos de EULER. Ver [camara_3Persona_Euler](https://github.com/aalexisp/UPC/blob/master/IDI/camara_3Persona_Euler.md)
  
+ - Lo primero es lo primero, declarar las vairables en **MyGLWidget.h**:
+ ```c++
+    typedef  enum {NONE, ROTATE} InteractiveAction;
+    InteractiveAction DoingInteractive;
+    int xClick, yClick;
+    float angleY, angleX;
+ 
+ ```
+ 
  - Antes de nada remarcar que en el **initializeGL()** se deben inicializar los valores xClick e yClick a 0.
  
  ```c++
