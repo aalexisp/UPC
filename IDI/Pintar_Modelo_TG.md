@@ -28,7 +28,8 @@ void MyGLWidget::modelTransformPatricio(){
 }
 ```
 
-También debemos tener en cuenta el hecho de que no solo podemos aplicar las transformaciones y pensar que ya estamos.
+- A continuación hay que llamar modificar la función **paintGL()**:
+Debemos tener en cuenta el hecho de que no solo podemos aplicar las transformaciones y pensar que ya estamos.
 Hay que activar el VAO del patricio, aplicar la matriz de transformación geométrica y luego pintar con el método **glDrawArrays(forma_de_pintar, 0, numero_de_vértices)**.
 
 ```c++
