@@ -21,6 +21,19 @@ Además para añadir este movimiento usaremos la función **KeyPressEvent()**.
   }
 
  ```
+ - Antes de nada es preciso llamar en el **paintGL()** a la función **modelTransform()** que vamos a crear:
+ 
+ ```c++
+  void NouGLWidget::paintGL() {
+   MyGLWidget::paintGL(); //<------------- Llamada al padre porque usamos NouGLWidget (otro esquema)
+                  
+   //Obligatorio ponerlo
+   glBindVertexArray (VAO_Pat); // Activamos el VAO para poder añadir la transformación
+   modelTransformPatricio2(); //<-------------- ModelTransform nueva
+   glDrawArrays(GL_TRIANGLES, 0, patModel.faces().size()*3); // Pintamos cada uno de los vértices
+ }
+ ```
+ 
  - Una vez le hemos dado valor a la variable de movimiento hay que implementarla en la función de translate del modelo en el **modelTransform()**.
  ```c++
   void NouGLWidget::modelTransformPatricio2 ()
