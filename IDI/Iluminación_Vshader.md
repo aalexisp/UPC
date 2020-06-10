@@ -24,7 +24,7 @@ Tendremos en cuenta que hacemos la aplicación de la iluminación en MyGLWidget 
     // uniform locations
     GLuint posFocusLoc;
     // variable a la que le daremos valor localmente en el initializeGL y luego linkearemos con el localizador
-    glm::vec3 posFocus
+    glm::vec3 posFocus;
 
   ```
   - Seguidamente en el **carregashaders()** hay que iniciar el localizador al final de la función tal que:
