@@ -21,7 +21,7 @@ Además para añadir este movimiento usaremos la función **KeyPressEvent()**.
   }
 
  ```
- - Antes de nada es preciso llamar en el **paintGL()** a la función **modelTransform()** que vamos a crear:
+ - (NECESARIO ANTERIORMENTE) Antes de nada es preciso llamar en el **paintGL()** a la función **modelTransform()** que vamos a crear. Esto es obligatorio siempre y cuando el modelo no esté pintado. Se explica en [Pintar_Modelo_TG](https://github.com/aalexisp/UPC/blob/master/IDI/Pintar_Modelo_TG.md):
  
  ```c++
   void NouGLWidget::paintGL() {
