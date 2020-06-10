@@ -30,7 +30,7 @@ Los métodos que debemos modificar necesariamente son:
   
   }
 ```
-Para calcular el radio de la escena hay dos posibilidades.
+## Para calcular el radio de la escena hay dos posibilidades.
 
 ### Haciendo pitágoras:
 
