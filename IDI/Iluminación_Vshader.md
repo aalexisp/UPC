@@ -32,6 +32,7 @@ Tendremos en cuenta que hacemos la aplicación de la iluminación en MyGLWidget 
     posFocusLoc = glGetUniformLocation (program->programId(), "posFocus");
   ```
   - Una vez hecho esto hay que ir al **initializeGL()** e inicializar el posFocus y luego pasarlo al localizador.
+  Lo óptimo es inicializarlo en **iniCamera()**.
   ```c++
   void MyGLWidget::initializeGL ()
 {
