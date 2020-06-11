@@ -18,7 +18,7 @@ void MyGLWidget::modelTransformPatricio(){
   glm::mat4 TG(1.0f);
   
   TG = glm::translate(TG, pos); //<---- última transformación que se aplica al modelo.
-  TG = glm::rotate(TG, angulo, glm::vec3(0.0, 1.0, 0.0));
+  TG = glm::rotate(TG, angulo, glm::vec3(0.f, 1.f, 0.f));
   TG = glm::scale(TG, glm::vec3(escalaPat*2));
   TG = glm::translate(TG, -centreBasePatricio); //<---- primera transformación que se aplica al modelo.
 
