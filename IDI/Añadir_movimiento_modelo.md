@@ -42,19 +42,19 @@ Además para añadir este movimiento usaremos la función **KeyPressEvent()**.
     makeCurrent();
     switch (event->key()) {
       case Qt::Key_S: {
-          movP2[2] = movP[2] + 0.5;
+          movz = movz + 0.5;
         break;
       }
       case Qt::Key_W: {
-          movP[2] = movP[2] + 0.5;
+          movz = movz + 0.5;
         break;
       }
       case Qt::Key_A: {
-          movP[0] = movP[0] - 0.5;
+          movx = movx - 0.5;
         break;
       }
       case Qt::Key_D: {
-          movP[0] += movP[0] + 0.5;
+          movx += movx + 0.5;
         break;
       }
       default: {
