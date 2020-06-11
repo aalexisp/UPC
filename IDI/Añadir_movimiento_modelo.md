@@ -33,7 +33,8 @@ Además para añadir este movimiento usaremos la función **KeyPressEvent()**.
   }
 
  ```
- - Para terminar hay que aumentar o disminuir las coordenadas pertinentes de la variable de movimiento en la función *KeyPressEvent()**
+ - Para terminar hay que aumentar o disminuir las coordenadas pertinentes de la variable de movimiento en la función *
+ **KeyPressEvent()**
 
  ```c++
   void NouGLWidget::keyPressEvent(QKeyEvent* event)
