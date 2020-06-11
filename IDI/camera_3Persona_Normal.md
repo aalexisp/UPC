@@ -4,7 +4,6 @@ Con tal de configurar una cámara en tercera persona hay que tener en cuenta un 
  - Debemos usar los valores de VRP, UP, OBS correctamente.
  - Debemos usar las funciones **lookat()** y **perspective() u ortho()** correctamente.
 
-Supongamos una posición inicial de la cámara incorrecta o inexistente.
 Los métodos que debemos modificar necesariamente son:
 
 ```c++
@@ -15,12 +14,11 @@ Los métodos que debemos modificar necesariamente son:
 
 ### iniCamera()
 
-  - Este método sirve para inicializar la cámara.
   - Lo primero que debemos hacer es poner los parámetros necesarios para la cámara:
     - VRP (*View Referenece Point*, hacia donde mirará la cámara).
     - OBS (*Observer*, posición en la que se situará la cámara).
     - UP (Dirección de la normal de la cámara).
-  - Seguidamente le damos valor al zNear y zFar junto on el FOV (fórmula en el código).
+  - Seguidamente le damos valor al zNear y zFar junto on el FOV
   - Finalmente se llaman a los métodos **projectTransform();** y **viewTransform();**
 
 ```c++
@@ -40,15 +38,7 @@ void MyGLWidget::ini_camera()
 }
 
 ```
-## Para calcular el radio de la escena hay dos posibilidades.
-
-### Haciendo pitágoras:
-
-<p align="center">
-	<img src="https://github.com/aalexisp/UPC/blob/master/IDI/images/image4.jpeg" width=60%>
-</p>
-
-### Buscando los puntos máximo y mínimo de mi escena
+### Buscar los puntos máximo y mínimo de mi escena
 
 - Hay que **destacar** una cosa muy importante. Y es que no siempre nos dirán el tamaño de la escena. En ese caso hay que mirar las posiciones de los vértices del suelo, tierra o lo que sea más externo de la escena. Esto se mira en el **carregaBuffers()** del respectivo objecto.
  
@@ -76,10 +66,10 @@ void MyGLWidget::ini_camera()
  // ...
   }
  ```
- - Una vez hemos encontrado estos valores de **Pmin** (punto mínimo de la escena) y **Pmax** (punto máximo de la escena).
- Es nececsario declarar estos dos valores como **glm::vec3 Pmin, Pmax;** en **MyGLWidget.h**:
+ - Una vez hemos encontrado estos valores de **min** (punto mínimo de la escena) y **max** (punto máximo de la escena).
+ Es nececsario declarar estos dos valores como **glm::vec3 min, max;** en **MyGLWidget.h**:
  ```c++
-     glm::vec3 Pmin, Pmax;
+     glm::vec3 min, max;
  ```
  - Por último para calcular el radio de la escena hay que calcular la distáncia entre estos dos puntos y dividirla entre 2
  en la función **iniCamera()**.
@@ -88,21 +78,18 @@ void MyGLWidget::ini_camera()
   void NouGLWidget::iniCamera ()
   {
 
-    centreEsc = glm::vec3 (4, 2, 4);
+    centreEsc = glm::vec3 (4.f, 2.f, 4.f);
     
-    Pmin = glm::vec3(-2.0, -1.0, -2.0);
-    Pmax = glm::vec3(2.0, 1.0, 2.0);
-    radiEsc = distance(Pmin, Pmax)/2.0;
+    min = glm::vec3(-2.f, -1.f, -2.f);
+    max = glm::vec3(2.f, 1.f, 2.f);
+    radiEsc = distance(min, max)/2.f;
   
   }
 ```
 
 ### viewTransform()
 
- - En la transformación para la View Matrix tendremos en cuenta las transformaciones geométricas pertinentes para situar
- la cámara correctamente.
- - En este caso, al no usar Euler usamos la función **glm::lookAt (OBS, VRP, UP);**. Función que hace internamente estas transformaciones.
- - Finalmente se translada la cámara a la posición donde queremos situarla que es sobre la esfera contenedora de la escena.
+ - En este caso, al no usar Euler usamos la función **glm::lookAt (OBS, VRP, UP);**.
 
 ```c++
 void MyGLWidget::viewTransform ()
@@ -116,8 +103,6 @@ void MyGLWidget::viewTransform ()
 
 ### projectTransform()
 
-- En la projectTransform de configuran los parámetros de la cámara.
-- Podriamos inicializar aqui FOV, zNear y zFar pero creo que da igual donde se haga.
 - Le damos valor a la matriz de proyección con el método **glm::perspective(fov, rav, zn, zf);**.
 - En el caso de ser cámara ortogonal **glm::ortho(-2.5f*raw, 2.5f*raw, 0.0f, 4.0f, zNear, zFar);**.
 - Finalmente se pasan los cambios al localizador projLoc.
