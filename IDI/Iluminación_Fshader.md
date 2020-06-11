@@ -76,25 +76,25 @@ A             |  B
   - Ahora las funciones de Phong y lambert no se van a usar aqui por lo que se pueden comentar.
   - Seguidamente hay que modificar el **main()** del vertex shader
     - Dado que todas las variables que nos pasan hay que pasarlas al fragment shader a las variables out se les guarda el valor que tienen las variables in:
-    - Debemos tener en cuenta también que hay algunas bariables que se tienen que normalizar en en vertex shader antes de pasarlas al fragment como **vertex**, **NormalMatrix** y **normal**
+    - Debemos tener en cuenta también que hay algunas bariables que se tienen que normalizar en en vertex shader antes de pasarlas al fragment.
     
     ```c++
-    void main() {
+    void main()
+    {	
       //fcolor = matdiff;
+      //gl_Position = proj * view * TG * vec4 (vertex, 1.0);
+      vertSCO = (view * TG * vec4 (vertex, 1.0));
+      mat3 normalMatrix = inverse (transpose (mat3 (view * TG)));
+      normalSCO =  normalize(normalMatrix * normal);
+      fcolor = colFocus;
 
-      //paràmetres que cal passar al fragment shader
-      vertexF = (view * TG * vec4(vertex, 1.0)).xyz;
+      gl_Position = proj * vertSCO;
 
-      //passar vector normal a SCO
-      mat3 NormalMatrix = (inverse(transpose(mat3(view * TG))));
-      normalF = NormalMatrix * normal;
-
-      matambF = matamb;
-      matdiffF = matdiff;
-      matspecF = matspec;
-      matshinF = matshin;
-
-      gl_Position = proj * view * TG * vec4 (vertex, 1.0);
+      matambfragment = matamb;
+      matdifffragment = matdiff;
+      matspecfragment = matspec;
+      matshinfragment = matshin;
+      viewmatrix = view;
     }
 
     ```
