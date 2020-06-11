@@ -70,7 +70,7 @@
   {
     glm::mat4 View(1.f);  // Matriu de posició i orientació
     //...
-    View = glm::rotate(View, angleX, glm::vec3(1.0, 0.0, 0.0)); //angleX
+    View = glm::rotate(View, angleX, glm::vec3(1.f, 0.f, 0.f)); //angleX
     View = glm::rotate(View, -angleY, glm::vec3(0, 1, 0)); //angleY
     //...
 
