@@ -37,12 +37,10 @@ void MyGLWidget::mouseMoveEvent(QMouseEvent *e)
   makeCurrent();
 
     if(DoingInteractive == ZOOM){
-     float FOVauxiliar = FOV + (e->y() - yClick)/10.0;
+     float FOVauxiliar = FOV + (e->y() - yClick)/10.f;
 
-     if(FOVauxiliar < (float) M_PI && FOVauxiliar > 0.0) {
+     if(FOVauxiliar < (float) M_PI && FOVauxiliar > 0.f) {
          FOV = FOVauxiliar;
-
-         emit actualitzaBarra((FOV/ float(M_PI))*100.0);
      }
 
   xClick = e->x();
